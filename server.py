@@ -305,11 +305,13 @@ specific category and do not invent a justification for the guess:
 - Keep confidence LOW (0.3 or under) and say in notes that you are inferring,
   not recognising, the term.
 - Do NOT substitute a guessed category into keywords when you are this
-  unsure. Pass the customer's own word(s) through as the keywords instead -
-  cleaned up and transliterated to Roman script, but not translated to a
-  different product - and let search match against it directly.
+  unsure. Translate the customer's word(s) to the closest English description
+  you can infer — keywords must always be English, never Kannada/Hindi script
+  or romanised Indic text (Wizzy only understands English). Keep it literal:
+  describe what they said, not a confident product guess.
   Example: an unfamiliar trade word with no clear catalogue match ->
-  keywords is that word itself, confidence 0.3, notes says it's a guess.
+  keywords is your best English translation of that word, confidence 0.3,
+  notes says it's an inferred translation.
 A wrong, confidently-named product is worse than passing the word through
 and letting search decide.
 
@@ -363,14 +365,17 @@ given, use it for everything.
    → Use the mapped English term as keywords.
 
 5. NO CONFIDENT MATCH — none of the above matched:
-   → Pass the customer's own words through as keywords (cleaned up, Roman
-     script). Do NOT invent or infer a category. Do NOT set product_type.
-     Set confidence LOW (≤ 0.4) and note that it is a pass-through.
+   → Translate the customer's query to the closest English product description
+     you can infer. Keywords MUST be English — never output Kannada, Hindi,
+     or any Indic script (or its romanisation) as keywords; Wizzy only
+     searches English. Do NOT set product_type. Set confidence LOW (≤ 0.4)
+     and note in notes that it is a best-effort English translation.
      Let the search engine decide — a wrong category is worse than no category.
 
 6. NOT IN ASSORTMENT — product is genuinely not stocked:
-   → Set in_assortment false, keywords to the customer's own words.
-     Do NOT redirect to an adjacent category — say so in notes instead.
+   → Set in_assortment false. Translate what the customer asked for into
+     English and put that in keywords — never output Kannada, Hindi, or
+     romanised Indic text. Say what HomeRun does NOT stock in notes.
 
 TRADE SLANG:
 {slang}

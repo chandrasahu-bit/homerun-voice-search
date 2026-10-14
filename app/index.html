@@ -39,7 +39,7 @@
 body{margin:0;background:var(--ground);color:var(--ink);
   font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
   display:flex;justify-content:center;align-items:flex-start;gap:20px;
-  padding:16px 12px 40px;min-height:100vh;flex-wrap:wrap}
+  padding:16px 12px 40px;min-height:100vh;flex-wrap:wrap;max-width:860px;margin-inline:auto}
 .side{width:100%;max-width:330px;position:sticky;top:16px;
   display:flex;flex-direction:column;gap:12px}
 @media (max-width:770px){ .side{position:static;max-width:404px} }
@@ -120,84 +120,6 @@ header{background:var(--blue);color:#fff;padding:14px 16px 12px}
   padding-top:3px}
 #results{display:none}
 
-/* The compare grid IS the result surface now, so it must not sit below the
-   fold. On a wide screen the page becomes two columns: input on the left,
-   results filling the rest. Narrower, it stacks under the phone as before. */
-@media (min-width:1180px){
-  body{display:grid;grid-template-columns:404px minmax(0,1fr);
-    align-items:start;justify-content:center;gap:14px 20px}
-  .phone{grid-column:1;grid-row:1}
-  .side{grid-column:1;grid-row:2;max-width:404px;position:static;top:auto}
-  .compare{grid-column:2;grid-row:1 / span 2;margin:0;max-width:none}
-  .compare:not(.on){display:block}
-  .compare:not(.on)::before{content:"Speak or type a request — all four engines answer it side by side.";
-    display:block;background:var(--panel);border:1px dashed var(--line);border-radius:12px;
-    padding:28px 20px;text-align:center;font-size:12.5px;color:var(--ink-3)}
-}
-.compare{display:none;order:3;width:100%;flex-basis:100%;max-width:1400px;margin:2px auto 0}
-.compare.on{display:block}
-
-/* header strip: what was heard, and what the router did with it */
-.cmphead{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  padding:11px 14px;margin-bottom:10px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
-.cmphead .said{font-size:15px;font-weight:600;color:var(--ink);margin-right:auto}
-.cmphead .said small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
-.cmpfact{font-size:11px;color:var(--ink-2);line-height:1.45}
-.cmpfact b{color:var(--ink);font-weight:600}
-.cmpfact small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
-
-.cmpscroll{overflow-x:auto;padding-bottom:6px}
-.cmpgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:stretch}
-@media (max-width:1000px){ .cmpgrid{grid-template-columns:repeat(4,250px);min-width:1030px} }
-
-.arm{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  display:flex;flex-direction:column;min-width:0;overflow:hidden}
-.arm .top{padding:10px 12px 9px;border-bottom:1px solid var(--line-2);
-  border-top:3px solid var(--line);display:flex;flex-direction:column;gap:7px}
-.arm.a-dictionary .top{border-top-color:var(--good)}
-.arm.a-vector .top{border-top-color:var(--amber)}
-.arm.a-model .top{border-top-color:var(--blue-ink)}
-.arm.a-auto{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-wash)}
-.arm.a-auto .top{border-top-color:var(--blue);background:var(--blue-wash)}
-.arm h4{margin:0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);
-  display:flex;justify-content:space-between;align-items:center;gap:6px}
-.arm .kw{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink);font-weight:500;
-  line-height:1.35;overflow-wrap:anywhere}
-.arm .kw.none{color:var(--ink-3);font-style:italic}
-.arm .statrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.arm .stat{font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
-  border-radius:4px;padding:2px 6px;background:var(--sunk);color:var(--ink-2);
-  font-family:"IBM Plex Mono",monospace}
-.arm .stat.ok{background:#e4f0e9;color:var(--good)}
-.arm .stat.zero{background:var(--amber-wash);color:var(--amber)}
-:root[data-theme="dark"] .arm .stat.ok,
-:root:not([data-theme="light"]) .arm .stat.ok{background:#1d2f25}
-/* the "chosen" badge on the arm the router picked - not related to pins */
-.arm .pin{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:#fff;background:var(--blue);border-radius:4px;padding:2px 6px}
-.arm .meta{font-size:10.5px;color:var(--ink-3);line-height:1.45;padding:8px 12px;
-  border-bottom:1px solid var(--line-2);overflow-wrap:anywhere}
-.arm ol{margin:0;padding:8px 12px 11px;list-style:none;display:flex;flex-direction:column;gap:8px;
-  flex:1}
-.arm ol li{display:flex;gap:8px;align-items:center;font-size:11.5px;line-height:1.3}
-.arm ol img{width:32px;height:32px;object-fit:contain;border-radius:5px;background:var(--sunk);flex:none}
-.arm ol .pr{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3);
-  display:block;margin-top:1px}
-.arm ol .sc{font-style:normal;font-weight:600;color:var(--amber);margin-left:6px}
-.arm ol .mt{font-style:normal;display:block;color:var(--ink-3);opacity:.85;
-  font-family:"IBM Plex Sans",sans-serif;font-size:10px;margin-top:1px}
-.arm .none-msg{padding:10px 12px 14px;font-size:11px;color:var(--ink-3);flex:1}
-.filtbar{padding:7px 12px;border-bottom:1px solid var(--line-2);background:var(--sunk);
-  display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.filtbar small{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink-3);width:100%}
-.fchip{font-size:10px;background:var(--blue-wash);color:var(--blue-ink);border-radius:4px;
-  padding:2px 6px;line-height:1.4}
-.fchip b{font-weight:600}
-.fnote{font-size:10px;color:var(--ink-3)}
-.narrow{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;color:var(--good)}
 .lbl{font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .val{font-size:14px;margin-top:2px;word-break:break-word}
 .val.mono{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--blue-ink);font-weight:500}
@@ -299,7 +221,6 @@ footer{padding:0 16px 18px;font-size:11px;color:var(--ink-3);line-height:1.5}
     <div class="typed">
       <input id="q" placeholder="…or type it — any language" autocomplete="off">
       <button id="go">Search</button>
-      <button id="cmp" title="Run all four arms on this query">Compare all</button>
     </div>
     <div class="examples" id="examples"></div>
   </div>
@@ -311,8 +232,6 @@ footer{padding:0 16px 18px;font-size:11px;color:var(--ink-3);line-height:1.5}
   </div>
   <footer id="foot"></footer>
 </div>
-
-<div class="compare" id="compare"></div>
 
 <aside class="side" id="side">
   <div class="sidehead">
@@ -734,89 +653,15 @@ $("#mic").addEventListener("click",()=>{
 $("#go").addEventListener("click",()=>run($("#q").value.trim()));
 $("#q").addEventListener("keydown",e=>{ if(e.key==="Enter") run($("#q").value.trim()); });
 
-// ---- compare: every arm on one utterance, read side by side -----------------
-const ARM_NOTE = {
-  Dictionary:"exact lookup - lexicon + synonyms",
-  Vector:"nearest embedded name",
-  Model:"Sarvam, catalogue vocabulary in prompt",
-  Auto:"what the router actually chose"
-};
-async function compare(t){
-  if(!t) return;
-  const box=$("#compare"); box.classList.add("on");
-  box.innerHTML=`<div class="cmphead"><div class="said"><small>you said</small>${esc(t)}</div>
-    <div class="cmpfact"><small>status</small>running all four arms…</div></div>`;
-  let d;
-  try{
-    d = await (await fetch("/api/compare",{method:"POST",
-      headers:{"content-type":"application/json"},body:JSON.stringify({transcript:t})})).json();
-  }catch(e){ box.innerHTML=`<div class="cmphead"><div class="said">compare failed: ${esc(String(e))}</div></div>`; return; }
-  if(d.error){ box.innerHTML=`<div class="cmphead"><div class="said">${esc(d.error)}</div></div>`; return; }
-
-  const auto=d.arms.find(a=>a.arm==="Auto")||{};
-  const facts=[];
-  facts.push(`<div class="cmpfact"><small>router</small><b>${esc(auto.routed||"?")}</b><br>${esc(d.reason||"")}</div>`);
-  if(d.corrections&&d.corrections.length)
-    facts.push(`<div class="cmpfact"><small>corrected</small>${d.corrections.map(c=>esc(c.heard)+" &rarr; <b>"+esc(c.intended)+"</b>").join("<br>")}</div>`);
-  if(d.spelling_fixes&&d.spelling_fixes.length)
-    facts.push(`<div class="cmpfact"><small>spell-fixed</small>${d.spelling_fixes.map(f=>esc(f.heard)+" &rarr; <b>"+esc(f.matched)+"</b>").join("<br>")}</div>`);
-  if(d.unknown_words&&d.unknown_words.length)
-    facts.push(`<div class="cmpfact"><small>not recognised</small><b>${esc(d.unknown_words.join(", "))}</b></div>`);
-  const head=`<div class="cmphead">
-    <div class="said"><small>you said</small>${esc(d.heard||d.transcript)}</div>${facts.join("")}</div>`;
-
-  const cards=d.arms.map(a=>{
-    const same = a.arm!=="Auto" && auto.keywords && a.keywords===auto.keywords;
-    const stats=[];
-    stats.push(`<span class="stat">${a.ms}ms</span>`);
-    if(a.search_ms!=null) stats.push(`<span class="stat">+${a.search_ms}ms search</span>`);
-    else if(a.retrieval==="direct") stats.push(`<span class="stat">no search call</span>`);
-    if(a.error) stats.push(`<span class="stat zero">error</span>`);
-    else if(a.redirect) stats.push(`<span class="stat ok">collection page</span>`);
-    else if(a.retrieval==="direct") stats.push(`<span class="stat ${a.total?"ok":"zero"}">${a.total||0} candidate${a.total===1?"":"s"}</span>`);
-    else stats.push(`<span class="stat ${a.total?"ok":"zero"}">${a.total||0} result${a.total===1?"":"s"}</span>`);
-    const prods=(a.products||[]).map(p=>`<li>${p.image?`<img src="${esc(p.image)}" alt="" loading="lazy">`:""}
-        <span>${esc(p.title||"")}<span class="pr">${p.price?`&#8377;${esc(String(p.price))}`:""}${
-          p.score!=null?`<em class="sc">${p.score.toFixed(2)}</em>`:""}${
-          p.matched?`<em class="mt">via “${esc(p.matched)}”</em>`:""}</span></span></li>`).join("");
-    let filt="";
-    if(a.filters){
-      const ap=a.filters.applied||{};
-      const chips=Object.keys(ap).map(k=>`<span class="fchip">${esc(k.replace(/^product_/,"").replace(/_/g," "))}: <b>${esc(ap[k])}</b></span>`).join("");
-      if(chips) filt=`<div class="filtbar"><small>narrowed by</small>${chips}
-        <span class="narrow">${a.filters.base_total} &rarr; ${a.filters.filtered_total}</span></div>`;
-      else if(a.filters.note) filt=`<div class="filtbar"><small>no filter</small><span class="fnote">${esc(a.filters.note)}</span></div>`;
-    }
-    const body = filt + (prods ? `<ol>${prods}</ol>`
-      : `<div class="none-msg">${a.error?esc(a.error):a.redirect?"Merchandised redirect — a collection page, not a product list.":"No products returned."}</div>`);
-    return `<div class="arm a-${a.arm.toLowerCase()}">
-      <div class="top">
-        <h4>${esc(a.arm)} ${same?`<span class="pin">chosen</span>`:""}</h4>
-        <div class="kw ${a.keywords?"":"none"}">${esc(a.keywords||"nothing")}</div>
-        <div class="statrow">${stats.join("")}</div>
-      </div>
-      <div class="meta">${esc(a.engine||ARM_NOTE[a.arm]||"")}${a.notes?" · "+esc(a.notes):""}</div>
-      ${body}
-    </div>`;
-  }).join("");
-  box.innerHTML=head+`<div class="cmpscroll"><div class="cmpgrid">${cards}</div></div>`;
-  const r=box.getBoundingClientRect();
-  if(r.top > window.innerHeight - 120) box.scrollIntoView({behavior:"smooth",block:"start"});
-}
-const _cmpBtn=$("#cmp");
-if(_cmpBtn) _cmpBtn.addEventListener("click",()=>compare($("#q").value.trim()||(LAST&&LAST.transcript)));
-
-
 let running=false;
 async function run(transcript, alternatives, stt){
   if(!transcript || running) return;
-  running=true; $("#go").disabled=true;
+  running=true; $(“#go”).disabled=true;
   if(!stt) resetHint();                 // typed search - drop any stale mic message
   try{
     await doRun(transcript, alternatives, stt);
-    compare(transcript);
   }
-  finally{ running=false; $("#go").disabled=false; }
+  finally{ running=false; $(“#go”).disabled=false; }
 }
 
 async function doRun(transcript, alternatives, stt){
