@@ -1,0 +1,32 @@
+# ASR CORRECTIONS — things the speech engine mis-hears.
+# Applied BEFORE anything else looks at the transcript.
+# heard  = exactly what the ASR returns (lowercase)
+# intended = what the customer actually said
+# Use this when fuzzy spell-repair cannot reach it (e.g. rough -> roff scores 0.44).
+heard,intended
+rough,roff
+ruff,roff
+raf,roff
+bosh,bosch
+bairoff,roff
+ployster,polyester
+ploister,polyester
+ten x,Tenax
+tenax,Tenax
+hatch,hettich
+century ply,century
+dr fix it,dr. fixit
+doctor fixit,dr. fixit
+jaguar,jaquar
+asian pent,asian paints
+shunmica,sunmica
+rof,roff
+pipe band,pipe bend
+band,bend
+dhamela,ghamela
+blank plate,blank plates
+treza,tresa
+trexa,tresa
+trespa,tresa
+dreamboard,drainboard
+travels,trowel

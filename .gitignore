@@ -1,0 +1,9 @@
+.env
+node_modules/
+__pycache__/
+data/catalog.json
+data/feedback.jsonl
+data/queries.jsonl
+*.pyc
+*.pyo
+.claude/

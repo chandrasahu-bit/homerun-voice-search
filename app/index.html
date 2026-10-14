@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HomeRun Voice Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#d9d6cf; --paper:#f4f2ee; --panel:#ffffff; --sunk:#eceae4;
+  --ink:#191b1a; --ink-2:#4d514e; --ink-3:#83877f;
+  --line:#d7d4cc; --line-2:#e6e3dc;
+  --blue:#23456b; --blue-ink:#2f5a8a; --blue-wash:#e7edf4;
+  --amber:#c2680b; --amber-wash:#fbeedd;
+  --good:#2f6b4f;
+  --shadow:0 1px 2px rgba(25,27,26,.08),0 8px 24px rgba(25,27,26,.08);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#121311; --paper:#1b1d1a; --panel:#232622; --sunk:#191b18;
+  --ink:#f0efe9; --ink-2:#b5b8b0; --ink-3:#7e827a;
+  --line:#333630; --line-2:#2a2d28;
+  --blue:#8fb4dd; --blue-ink:#a8c7e8; --blue-wash:#1d2733;
+  --amber:#e0a260; --amber-wash:#2e2418;
+  --good:#7fc0a0;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --ground:#121311; --paper:#1b1d1a; --panel:#232622; --sunk:#191b18;
+  --ink:#f0efe9; --ink-2:#b5b8b0; --ink-3:#7e827a;
+  --line:#333630; --line-2:#2a2d28;
+  --blue:#8fb4dd; --blue-ink:#a8c7e8; --blue-wash:#1d2733;
+  --amber:#e0a260; --amber-wash:#2e2418;
+  --good:#7fc0a0;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  display:flex;justify-content:center;align-items:flex-start;gap:20px;
+  padding:16px 12px 40px;min-height:100vh;flex-wrap:wrap}
+.side{width:100%;max-width:330px;position:sticky;top:16px;
+  display:flex;flex-direction:column;gap:12px}
+@media (max-width:770px){ .side{position:static;max-width:404px} }
+.phone{width:100%;max-width:404px;background:var(--paper);border:1px solid var(--line);
+  border-radius:22px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+
+/* header */
+header{background:var(--blue);color:#fff;padding:14px 16px 12px}
+:root[data-theme="dark"] header,
+:root:not([data-theme="light"]) header{color:#0e1520}
+@media (prefers-color-scheme:light){header{color:#fff}}
+.brand{font-family:Archivo,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:8px}
+.brand small{font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  opacity:.75;padding:3px 6px;border:1px solid currentColor;border-radius:4px}
+.chips{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.chip{font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.16)}
+:root[data-theme="dark"] .chip,
+:root:not([data-theme="light"]) .chip{background:rgba(0,0,0,.16)}
+@media (prefers-color-scheme:light){.chip{background:rgba(255,255,255,.16)}}
+
+/* mic */
+.stage{padding:18px 16px;display:flex;flex-direction:column;gap:14px;
+  border-bottom:1px solid var(--line-2)}
+.switches{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:999px;
+  background:var(--panel);overflow:hidden}
+.swlbl{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);padding:0 8px 0 11px}
+.opt{font-size:11.5px;font-weight:600;padding:5px 10px;border:none;background:transparent;
+  color:var(--ink-3);cursor:pointer;font-family:inherit}
+.opt[aria-pressed="true"]{background:var(--blue);color:#fff}
+:root[data-theme="dark"] .opt[aria-pressed="true"],
+:root:not([data-theme="light"]) .opt[aria-pressed="true"]{color:#0e1520}
+@media (prefers-color-scheme:light){.opt[aria-pressed="true"]{color:#fff}}
+.opt:disabled{opacity:.4;cursor:not-allowed}
+.langrow{display:flex;gap:6px;justify-content:center;transition:opacity .15s}
+.langrow.off{visibility:hidden;opacity:0;pointer-events:none}
+.lang{font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:5px 11px;border-radius:999px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink-2);cursor:pointer}
+.lang[aria-pressed="true"]{background:var(--blue-wash);border-color:var(--blue);color:var(--blue-ink)}
+.micwrap{display:flex;flex-direction:column;align-items:center;gap:9px}
+#mic{width:84px;height:84px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--blue);color:#fff;display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(35,69,107,.32);transition:transform .12s}
+#mic:active{transform:scale(.95)}
+#mic:disabled{background:var(--line);color:var(--ink-3);box-shadow:none;cursor:not-allowed}
+#mic:disabled:active{transform:none}
+#mic svg{width:32px;height:32px;fill:currentColor}
+#mic.live{background:var(--amber);animation:pulse 1.3s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(194,104,11,.45)}50%{box-shadow:0 0 0 14px rgba(194,104,11,0)}}
+@media (prefers-reduced-motion:reduce){#mic.live{animation:none}}
+.hint{font-size:12px;color:var(--ink-3);text-align:center;min-height:16px}
+
+/* typed input */
+.typed{display:flex;gap:7px}
+.typed input{flex:1;min-width:0;padding:10px 12px;border-radius:9px;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);font-family:inherit;font-size:14px}
+.typed input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.typed button:disabled{opacity:.5;cursor:progress}
+.typed button{padding:10px 15px;border-radius:9px;border:none;background:var(--ink);color:var(--paper);
+  font-family:inherit;font-weight:600;font-size:13.5px;cursor:pointer}
+
+.examples{display:flex;gap:6px;flex-wrap:wrap}
+.ex{font-size:12px;padding:5px 10px;border-radius:999px;border:1px dashed var(--line);
+  background:transparent;color:var(--ink-2);cursor:pointer;font-family:inherit}
+.ex:hover{border-style:solid;border-color:var(--blue);color:var(--blue-ink)}
+.ex b{font-weight:600;color:var(--ink-3);font-size:10px;letter-spacing:.06em;margin-right:4px}
+
+/* trace */
+.trace{padding:14px 16px;background:var(--sunk);border-bottom:1px solid var(--line-2);
+  display:none;flex-direction:column;gap:0}
+.trace.on{display:flex}
+.step{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:7px 0}
+.step+.step{border-top:1px solid var(--line-2)}
+.num{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;color:var(--ink-3);
+  padding-top:3px}
+#results{display:none}
+
+/* The compare grid IS the result surface now, so it must not sit below the
+   fold. On a wide screen the page becomes two columns: input on the left,
+   results filling the rest. Narrower, it stacks under the phone as before. */
+@media (min-width:1180px){
+  body{display:grid;grid-template-columns:404px minmax(0,1fr);
+    align-items:start;justify-content:center;gap:14px 20px}
+  .phone{grid-column:1;grid-row:1}
+  .side{grid-column:1;grid-row:2;max-width:404px;position:static;top:auto}
+  .compare{grid-column:2;grid-row:1 / span 2;margin:0;max-width:none}
+  .compare:not(.on){display:block}
+  .compare:not(.on)::before{content:"Speak or type a request — all four engines answer it side by side.";
+    display:block;background:var(--panel);border:1px dashed var(--line);border-radius:12px;
+    padding:28px 20px;text-align:center;font-size:12.5px;color:var(--ink-3)}
+}
+.compare{display:none;order:3;width:100%;flex-basis:100%;max-width:1400px;margin:2px auto 0}
+.compare.on{display:block}
+
+/* header strip: what was heard, and what the router did with it */
+.cmphead{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:11px 14px;margin-bottom:10px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+.cmphead .said{font-size:15px;font-weight:600;color:var(--ink);margin-right:auto}
+.cmphead .said small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
+.cmpfact{font-size:11px;color:var(--ink-2);line-height:1.45}
+.cmpfact b{color:var(--ink);font-weight:600}
+.cmpfact small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
+
+.cmpscroll{overflow-x:auto;padding-bottom:6px}
+.cmpgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:stretch}
+@media (max-width:1000px){ .cmpgrid{grid-template-columns:repeat(4,250px);min-width:1030px} }
+
+.arm{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.arm .top{padding:10px 12px 9px;border-bottom:1px solid var(--line-2);
+  border-top:3px solid var(--line);display:flex;flex-direction:column;gap:7px}
+.arm.a-dictionary .top{border-top-color:var(--good)}
+.arm.a-vector .top{border-top-color:var(--amber)}
+.arm.a-model .top{border-top-color:var(--blue-ink)}
+.arm.a-auto{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-wash)}
+.arm.a-auto .top{border-top-color:var(--blue);background:var(--blue-wash)}
+.arm h4{margin:0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);
+  display:flex;justify-content:space-between;align-items:center;gap:6px}
+.arm .kw{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink);font-weight:500;
+  line-height:1.35;overflow-wrap:anywhere}
+.arm .kw.none{color:var(--ink-3);font-style:italic}
+.arm .statrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.arm .stat{font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  border-radius:4px;padding:2px 6px;background:var(--sunk);color:var(--ink-2);
+  font-family:"IBM Plex Mono",monospace}
+.arm .stat.ok{background:#e4f0e9;color:var(--good)}
+.arm .stat.zero{background:var(--amber-wash);color:var(--amber)}
+:root[data-theme="dark"] .arm .stat.ok,
+:root:not([data-theme="light"]) .arm .stat.ok{background:#1d2f25}
+/* the "chosen" badge on the arm the router picked - not related to pins */
+.arm .pin{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;background:var(--blue);border-radius:4px;padding:2px 6px}
+.arm .meta{font-size:10.5px;color:var(--ink-3);line-height:1.45;padding:8px 12px;
+  border-bottom:1px solid var(--line-2);overflow-wrap:anywhere}
+.arm ol{margin:0;padding:8px 12px 11px;list-style:none;display:flex;flex-direction:column;gap:8px;
+  flex:1}
+.arm ol li{display:flex;gap:8px;align-items:center;font-size:11.5px;line-height:1.3}
+.arm ol img{width:32px;height:32px;object-fit:contain;border-radius:5px;background:var(--sunk);flex:none}
+.arm ol .pr{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3);
+  display:block;margin-top:1px}
+.arm ol .sc{font-style:normal;font-weight:600;color:var(--amber);margin-left:6px}
+.arm ol .mt{font-style:normal;display:block;color:var(--ink-3);opacity:.85;
+  font-family:"IBM Plex Sans",sans-serif;font-size:10px;margin-top:1px}
+.arm .none-msg{padding:10px 12px 14px;font-size:11px;color:var(--ink-3);flex:1}
+.filtbar{padding:7px 12px;border-bottom:1px solid var(--line-2);background:var(--sunk);
+  display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.filtbar small{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);width:100%}
+.fchip{font-size:10px;background:var(--blue-wash);color:var(--blue-ink);border-radius:4px;
+  padding:2px 6px;line-height:1.4}
+.fchip b{font-weight:600}
+.fnote{font-size:10px;color:var(--ink-3)}
+.narrow{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;color:var(--good)}
+.lbl{font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.val{font-size:14px;margin-top:2px;word-break:break-word}
+.val.mono{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--blue-ink);font-weight:500}
+.alts{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.alt{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:3px 7px;border-radius:4px;
+  background:var(--panel);border:1px solid var(--line-2);color:var(--ink-3)}
+.alt b{font-weight:600;opacity:.6;margin-left:3px}
+.alt.on{background:var(--blue-wash);border-color:var(--blue);color:var(--blue-ink)}
+.tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 6px;border-radius:3px;background:var(--blue-wash);color:var(--blue-ink);margin-left:6px}
+.tag.warn{background:var(--amber-wash);color:var(--amber)}
+
+/* results */
+.results{padding:14px 16px 20px;display:flex;flex-direction:column;gap:10px}
+.rhead{display:flex;justify-content:space-between;align-items:baseline}
+.rhead h2{font-family:Archivo,sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);margin:0}
+.rhead span{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.card{display:grid;grid-template-columns:62px 1fr;gap:11px;padding:10px;border-radius:11px;
+  background:var(--panel);border:1px solid var(--line-2)}
+.card img{width:62px;height:62px;object-fit:contain;border-radius:7px;background:var(--sunk)}
+.card .t{font-size:13.5px;font-weight:500;line-height:1.35}
+.card .m{font-size:11px;color:var(--ink-3);margin-top:3px}
+.card .p{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:500;margin-top:5px;
+  font-variant-numeric:tabular-nums}
+.card .vr{font-size:10.5px;color:var(--ink-3);margin-top:3px}
+.sidehead{background:var(--panel);border:1px solid var(--line-2);border-radius:12px;
+  padding:14px;display:flex;flex-direction:column;gap:6px}
+.sidehead h3{font-family:Archivo,sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
+.askedfor{font-size:12.5px;color:var(--ink-2);line-height:1.45;word-break:break-word}
+.askedfor code{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue-ink)}
+.fb{padding:13px;border-radius:11px;background:var(--sunk);
+  border:1px solid var(--line-2);display:flex;flex-direction:column;gap:9px}
+.fb .q{font-size:13.5px;font-weight:600}
+.fbrow{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.fbtn{font-size:13px;font-weight:600;padding:7px 15px;border-radius:9px;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink);font-family:inherit}
+.fbtn.yes[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
+.fbtn.no[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#fff}
+.fb input,.fb textarea{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);font-family:inherit;font-size:13px;resize:vertical}
+.fb textarea{min-height:52px}
+.fb .send{align-self:flex-start;padding:8px 16px;border:none;border-radius:9px;
+  background:var(--ink);color:var(--paper);font-weight:600;font-size:13px;cursor:pointer;
+  font-family:inherit}
+.fb .done{font-size:13px;color:var(--good);font-weight:600}
+.notstocked{padding:11px 13px;border-radius:10px;background:var(--amber-wash);
+  border:1px solid var(--amber);display:flex;flex-direction:column;gap:3px;margin-bottom:2px}
+.notstocked .lbl{color:var(--amber)}
+.notstocked .val{font-size:13px}
+.redirect{padding:13px;border-radius:11px;background:var(--blue-wash);
+  border:1px solid var(--blue);display:flex;flex-direction:column;gap:4px}
+.redirect .val{font-size:13.5px}
+.redirect a{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue-ink);word-break:break-all}
+a.card{text-decoration:none;color:inherit}
+a.card:hover{border-color:var(--blue)}
+.card .ph{width:62px;height:62px;border-radius:7px;background:var(--sunk)}
+.card .p s{color:var(--ink-3);font-weight:400;margin-left:4px}
+.oos{color:var(--amber);font-weight:600}
+.empty{padding:26px 8px;text-align:center;color:var(--ink-3);font-size:13.5px}
+footer{padding:0 16px 18px;font-size:11px;color:var(--ink-3);line-height:1.5}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header>
+    <div class="brand">HomeRun <small>Voice</small></div>
+    <div class="chips" id="chips"><span class="chip">loading…</span></div>
+  </header>
+
+  <div class="stage">
+    <div class="switches">
+      <div class="sw" role="group" aria-label="Speech engine">
+        <span class="swlbl">Speech</span>
+        <button class="opt" data-stt="live" aria-pressed="true">Sarvam Live</button>
+        <button class="opt" data-stt="sarvam" aria-pressed="false">Sarvam Batch</button>
+        <button class="opt" data-stt="google" aria-pressed="false">Google</button>
+      </div>
+      <div class="sw" role="group" aria-label="Intent engine">
+        <span class="swlbl">Intent</span>
+        <button class="opt" data-eng="auto" aria-pressed="true">Auto</button>
+        <button class="opt" data-eng="llm" aria-pressed="false">AI</button>
+        <button class="opt" data-eng="rules" aria-pressed="false">Dictionary</button>
+        <button class="opt" data-eng="vector" aria-pressed="false">Vector</button>
+      </div>
+    </div>
+    <div class="langrow off" id="langrow" role="group" aria-label="Google speech language">
+      <button class="lang" data-l="en-IN" aria-pressed="true">English</button>
+      <button class="lang" data-l="hi-IN" aria-pressed="false">हिन्दी</button>
+      <button class="lang" data-l="kn-IN" aria-pressed="false">ಕನ್ನಡ</button>
+    </div>
+    <div class="micwrap">
+      <button id="mic" aria-label="Hold to speak">
+        <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a1 1 0 1 0-2 0 5 5 0 0 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.92V21H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-3.08A7 7 0 0 0 19 11z"/></svg>
+      </button>
+      <div class="hint" id="hint">Tap and speak</div>
+    </div>
+    <div class="typed">
+      <input id="q" placeholder="…or type it — any language" autocomplete="off">
+      <button id="go">Search</button>
+      <button id="cmp" title="Run all four arms on this query">Compare all</button>
+    </div>
+    <div class="examples" id="examples"></div>
+  </div>
+
+  <div class="trace" id="trace"></div>
+
+  <div class="results" id="results">
+    <div class="empty">Speak or type a request to see how it becomes a search query.</div>
+  </div>
+  <footer id="foot"></footer>
+</div>
+
+<div class="compare" id="compare"></div>
+
+<aside class="side" id="side">
+  <div class="sidehead">
+    <h3>Rate this result</h3>
+    <div class="askedfor">Run a search, then tell us whether it found the
+      right product. Every answer becomes a test case.</div>
+  </div>
+</aside>
+
+<script>
+const EXAMPLES = [
+  ["EN","18mm marine plywood"],
+  ["HI","do bag cement chahiye"],
+  ["HI","bathroom ke liye Jaquar ka shower"],
+  ["HI","kabza chahiye almari ke liye"],
+  ["HI","ek inch CPVC pipe Ashirvad"],
+  ["KN","ಬಿಳಿ ಬಣ್ಣ ಹೊರಗೋಡೆಗೆ"],
+  ["HI","deewar ke liye safedi"],
+  ["EN","Bosch cordless drill"],
+];
+let LANG = "en-IN";
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// status
+const PAGE_LOADED = Date.now();
+fetch("/api/status").then(r=>r.json()).then(s=>{
+  $("#chips").innerHTML =
+    `<span class="chip">${s.products} SKUs</span>`+
+    `<span class="chip">${s.brands} brands</span>`+
+    `<span class="chip">intent: ${s.llm?(s.llm_provider||"LLM"):"rules"}</span>`+
+    `<span class="chip">search: ${s.wizzy?"Wizzy":"local"}</span>`+
+    `<span class="chip">${s.lexicon} slang</span>`+
+    // Red if this tab is older than the running server: the page you are
+    // looking at was loaded before the code that is answering it.
+    `<span class="chip" style="${s.build&&s.build*1000>PAGE_LOADED?"color:var(--amber)":""}"
+      >build ${s.build?new Date(s.build*1000).toTimeString().slice(0,5):"?"}${
+        s.build&&s.build*1000>PAGE_LOADED?" · reload":""}</span>`;
+  $("#foot").innerHTML = (s.llm?"":"Add <code>OPENAI_API_KEY</code> to .env for the LLM intent layer. ")+
+    (s.wizzy?"":"Add <code>WIZZY_STORE_ID</code> + <code>WIZZY_API_KEY</code> to .env to search via Wizzy instead of the local index.");
+});
+
+// examples
+$("#examples").innerHTML = EXAMPLES.map(([l,t])=>
+  `<button class="ex" data-t="${esc(t)}"><b>${l}</b>${esc(t)}</button>`).join("");
+$("#examples").addEventListener("click",e=>{
+  const b=e.target.closest(".ex"); if(!b) return;
+  $("#q").value=b.dataset.t; run(b.dataset.t);
+});
+
+// language
+document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".lang").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true"); LANG=b.dataset.l;
+  $("#hint").textContent="Tap and speak";
+}));
+
+
+// ---- feedback: every rating is a labelled row for the eval set ----
+let LAST=null, fbCorrect=null;
+
+function feedbackForm(){
+  return `<div class="fb" id="fb">
+    <div class="q">Did this find the right product?</div>
+    <div class="fbrow">
+      <button class="fbtn yes" data-c="1" aria-pressed="false">Yes</button>
+      <button class="fbtn no"  data-c="0" aria-pressed="false">No</button>
+    </div>
+    <div id="fbmore" hidden>
+      <input id="fbexp" placeholder="What should it have shown?">
+    </div>
+    <textarea id="fbnote" placeholder="Anything else? (optional)"></textarea>
+    <input id="fbwho" placeholder="Your name (optional)">
+    <button class="send" id="fbsend">Send feedback</button>
+  </div>`;
+}
+
+function showFeedback(){
+  const host=document.querySelector("#side");
+  host.innerHTML = `<div class="sidehead">
+      <h3>Rate this result</h3>
+      <div class="askedfor">you said: <b>${esc(LAST.transcript||"")}</b></div>
+      <div class="askedfor">searched: <code>${esc([LAST.brand,LAST.keywords].filter(Boolean).join(" "))}</code>
+        &middot; ${LAST.hits} result${LAST.hits===1?"":"s"}</div>
+    </div>` + feedbackForm();
+  wireFeedback();
+}
+
+function wireFeedback(){
+  fbCorrect=null;
+  const fb=document.querySelector("#fb"); if(!fb) return;
+  fb.querySelectorAll(".fbtn").forEach(b=>b.addEventListener("click",()=>{
+    fbCorrect = b.dataset.c==="1";
+    fb.querySelectorAll(".fbtn").forEach(x=>x.setAttribute("aria-pressed",
+      String(x.dataset.c===b.dataset.c)));
+    document.querySelector("#fbmore").hidden = fbCorrect;   // ask "what instead" only on No
+  }));
+  document.querySelector("#fbsend").addEventListener("click", async ()=>{
+    const body = Object.assign({}, LAST, {
+      correct: fbCorrect,
+      expected: (document.querySelector("#fbexp")||{}).value || "",
+      comment:  document.querySelector("#fbnote").value || "",
+      who:      document.querySelector("#fbwho").value || ""});
+    if(fbCorrect===null && !body.comment){
+      document.querySelector("#fbnote").focus(); return;
+    }
+    try{
+      const r = await (await fetch("/api/feedback",{method:"POST",
+        headers:{"content-type":"application/json"},body:JSON.stringify(body)})).json();
+      fb.innerHTML = `<div class="done">Thanks — recorded. (${r.total} responses so far)</div>`;
+    }catch(e){
+      fb.innerHTML = `<div class="done" style="color:var(--amber)">Could not save — try again</div>`;
+    }
+  });
+}
+
+const LANGNAME={en:"English",hi:"Hindi",kn:"Kannada",mixed:"Mixed"};
+
+// speech
+const SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+let STT = "live", ENGINE = "auto", SARVAM_OK = false, srActive = null;
+
+function sttUsable(){ return STT==="google" ? !!SR : SARVAM_OK; }
+
+function applySTT(){
+  document.querySelectorAll("[data-stt]").forEach(b=>
+    b.setAttribute("aria-pressed", String(b.dataset.stt===STT)));
+  // Google needs to be told the language; Sarvam detects it itself.
+  $("#langrow").classList.toggle("off", STT !== "google");
+  const mic = $("#mic");
+  mic.disabled = !sttUsable();
+  mic.title = mic.disabled ? "This speech engine is not available" : "Tap to speak";
+  resetHint();
+}
+
+function resetHint(){
+  $("#hint").textContent =
+    STT==="live"   ? "Tap and speak — words appear live" :
+    STT==="sarvam" ? "Tap and speak — any language" :
+    (SR ? "Tap and speak — pick the language first" : "Google speech not supported here");
+}
+
+function micBlocked(){
+  $("#mic").classList.remove("live");
+  $("#hint").textContent = "Microphone blocked — allow it in the browser, then tap again";
+}
+
+// switching engine mid-utterance must not leave the mic open
+function stopCapture(){
+  if(liveWS) stopLive("switched");
+  if(rec && rec.state==="recording"){ recAbort=true; rec.stop(); }
+  if(srActive){ try{ srActive.abort(); }catch(e){} srActive=null; }
+  $("#mic").classList.remove("live");
+}
+function applyEngine(){
+  document.querySelectorAll("[data-eng]").forEach(b=>
+    b.setAttribute("aria-pressed", String(b.dataset.eng===ENGINE)));
+}
+
+fetch("/api/status").then(r=>r.json()).then(s=>{
+  SARVAM_OK = s.stt==="sarvam";
+  if(!SARVAM_OK) document.querySelectorAll('[data-stt="live"],[data-stt="sarvam"]')
+                         .forEach(b=>{ b.disabled = true; });
+  if(!SR){ const g=document.querySelector('[data-stt="google"]'); if(g) g.disabled = true; }
+  STT = SARVAM_OK ? "live" : (SR ? "google" : "live");
+  if(!s.llm){ ENGINE="rules";
+    document.querySelector('[data-eng="llm"]').disabled = true;
+    document.querySelector('[data-eng="auto"]').disabled = true; }
+  if(!s.vector){ document.querySelector('[data-eng="vector"]').disabled = true; }
+  if(s.synonyms){ const c=document.querySelector(".chips")||document.querySelector("header");
+    if(c){ const e=document.createElement("span"); e.className="chip";
+           e.textContent = s.synonyms.toLocaleString()+" SYNONYMS"; c.appendChild(e); } }
+  applySTT(); applyEngine();
+});
+
+document.querySelectorAll("[data-stt]").forEach(b=>b.addEventListener("click",()=>{
+  if(b.disabled || STT===b.dataset.stt) return;
+  stopCapture(); STT=b.dataset.stt; applySTT();
+}));
+document.querySelectorAll("[data-eng]").forEach(b=>b.addEventListener("click",()=>{
+  if(b.disabled || ENGINE===b.dataset.eng) return;
+  ENGINE=b.dataset.eng; applyEngine();
+  // the point of this switch is the comparison - same words, other engine
+  const t = (LAST && LAST.transcript) || $("#q").value.trim();
+  if(t) run(t);
+}));
+
+
+// ---- Live: stream 16kHz PCM to the local proxy, which relays to Sarvam ----
+let liveWS=null, liveCtx=null, liveNode=null, liveStream=null, liveFinal="", liveLang=null;
+let liveStopping=false, liveHeardSpeech=false;
+let liveNoSpeechTimer=null, liveMaxTimer=null, liveEndTimer=null;
+
+// Sarvam's realtime socket expects 16 kHz. Chrome honours the requested rate;
+// Safari and Firefox often hand back the device rate (usually 48 kHz) instead,
+// and sending 48 kHz frames labelled as 16 kHz produces silence or nonsense.
+function to16k(f32, inRate){
+  if(!inRate || inRate === 16000) return f32;
+  const ratio = inRate / 16000, outLen = Math.floor(f32.length / ratio);
+  const out = new Float32Array(outLen);
+  for(let i=0;i<outLen;i++){
+    const a = Math.floor(i*ratio), b = Math.min(f32.length, Math.floor((i+1)*ratio));
+    let sum = 0, n = 0;
+    for(let j=a;j<b;j++){ sum += f32[j]; n++; }
+    out[i] = n ? sum/n : 0;
+  }
+  return out;
+}
+
+function pcm16(f32){
+  const out=new Int16Array(f32.length);
+  for(let i=0;i<f32.length;i++){
+    const s=Math.max(-1,Math.min(1,f32[i]));
+    out[i]= s<0 ? s*0x8000 : s*0x7FFF;
+  }
+  return out.buffer;
+}
+
+async function startLive(){
+  if(liveWS || liveStopping) return;                 // never double-start
+  try{ liveStream = await navigator.mediaDevices.getUserMedia({audio:{
+        channelCount:1, echoCancellation:true, noiseSuppression:true}}); }
+  catch(e){ micBlocked(); return; }
+
+  liveFinal=""; liveLang=null; liveHeardSpeech=false;
+  liveWS = new WebSocket("ws://"+location.hostname+":8788");
+  liveWS.binaryType="arraybuffer";
+
+  // Stop by itself. Three ways out, so the mic is never left open:
+  //   a) Sarvam's VAD says the utterance ended  -> stop immediately
+  //   b) nobody spoke within NO_SPEECH_MS       -> stop, say so
+  //   c) hard ceiling of MAX_MS                 -> stop regardless
+  const NO_SPEECH_MS = 7000, MAX_MS = 20000;
+  clearTimeout(liveNoSpeechTimer); clearTimeout(liveMaxTimer);
+  liveNoSpeechTimer = setTimeout(()=>{ if(!liveHeardSpeech) stopLive("nothing heard"); },
+                                 NO_SPEECH_MS);
+  liveMaxTimer = setTimeout(()=>stopLive("time limit"), MAX_MS);
+
+  liveWS.onmessage = ev=>{
+    let m; try{ m=JSON.parse(ev.data); }catch(e){ return; }
+    if(m.event==="vad.speech_start"){
+      liveHeardSpeech = true;
+      clearTimeout(liveNoSpeechTimer);
+    } else if(m.event==="transcript.partial"){
+      liveHeardSpeech = true;
+      $("#q").value = m.text||"";
+      $("#hint").textContent = m.text||"Listening…";
+    } else if(m.event==="transcript.final"){
+      liveFinal = m.text||liveFinal; liveLang = m.language||liveLang;
+      $("#q").value = liveFinal;
+      stopLive();                                    // <- the customer stopped talking
+    } else if(m.event==="vad.speech_end"){
+      // final usually follows within a moment; if it does not, close anyway
+      clearTimeout(liveEndTimer);
+      liveEndTimer = setTimeout(()=>stopLive(), 1200);
+    } else if(m.event==="error"){
+      $("#hint").textContent = "Speech error: "+String(m.message||"").slice(0,44);
+      stopLive("error");
+    }
+  };
+  liveWS.onerror = ()=>{ $("#hint").textContent="Live proxy not reachable (port 8788)";
+                         stopLive("proxy error"); };
+  liveWS.onclose = ()=>{ if(!liveStopping) stopLive("connection closed"); };
+
+  liveWS.onopen = ()=>{
+    liveCtx = new (window.AudioContext||window.webkitAudioContext)({sampleRate:16000});
+    const src = liveCtx.createMediaStreamSource(liveStream);
+    liveNode = liveCtx.createScriptProcessor(4096,1,1);
+    if(liveCtx.sampleRate !== 16000)
+      console.warn("AudioContext is", liveCtx.sampleRate, "Hz - resampling to 16 kHz");
+    liveNode.onaudioprocess = e=>{
+      if(liveWS && liveWS.readyState===1)
+        liveWS.send(pcm16(to16k(e.inputBuffer.getChannelData(0), liveCtx.sampleRate)));
+    };
+    src.connect(liveNode); liveNode.connect(liveCtx.destination);
+    $("#mic").classList.add("live");
+    $("#hint").textContent="Listening…";
+  };
+}
+
+function releaseMic(){
+  // cut the audio path FIRST so nothing more is captured or sent
+  if(liveNode){ liveNode.onaudioprocess=null; try{liveNode.disconnect();}catch(e){} liveNode=null; }
+  if(liveCtx){ try{ liveCtx.close(); }catch(e){} liveCtx=null; }
+  if(liveStream){ liveStream.getTracks().forEach(t=>t.stop()); liveStream=null; }
+}
+
+async function stopLive(reason){
+  if(liveStopping) return;                            // stop() can arrive twice
+  liveStopping = true;
+  clearTimeout(liveNoSpeechTimer); clearTimeout(liveMaxTimer); clearTimeout(liveEndTimer);
+  $("#mic").classList.remove("live");
+  releaseMic();                                       // mic off immediately
+
+  const ws = liveWS;
+  try{ if(ws && ws.readyState===1) ws.send(JSON.stringify({event:"stop"})); }catch(e){}
+  if(!liveFinal){
+    $("#hint").textContent="Finishing…";
+    const t0=Date.now();
+    while(!liveFinal && Date.now()-t0 < 2000) await new Promise(r=>setTimeout(r,80));
+  }
+  try{ ws && ws.close(); }catch(e){}
+  liveWS=null; liveStopping=false;
+
+  if(reason==="switched") return;                      // mode switch, not an utterance
+  const t = (liveFinal || $("#q").value || "").trim();
+  if(t){
+    $("#hint").textContent =
+      `heard ${LANGNAME[liveLang&&liveLang.split("-")[0]]||liveLang||""} · tap to speak again`;
+    run(t, null, {engine:"sarvam-live", language:liveLang&&liveLang.split("-")[0]});
+  } else {
+    $("#hint").textContent = reason==="nothing heard"
+      ? "Didn't hear anything — tap and speak" : "Didn't catch that — tap to try again";
+  }
+}
+
+// ---- Sarvam batch: record, POST the clip so far, get a rolling transcript ----
+let rec=null, chunks=[], liveText="", inflight=false, partialTimer=null;
+let recAbort=false, lastPartial=0, recMaxTimer=null;
+
+async function transcribeSoFar(type, isFinal){
+  if(!chunks.length) return null;
+  if(inflight) return null;                     // one request in flight at a time
+  if(!isFinal && Date.now()-lastPartial < 1800) return null;   // don't spam the API
+  inflight = true; lastPartial = Date.now();
+  try{
+    const r = await fetch("/api/transcribe", {method:"POST",
+      headers:{"x-audio-type":type}, body:new Blob(chunks,{type})});
+    const d = await r.json();
+    if(d && d.transcript){
+      liveText = d.transcript;
+      if(!isFinal){ $("#q").value = liveText; $("#hint").textContent = liveText; }
+    }
+    return d;
+  }catch(e){
+    return isFinal ? {error:String(e.message||e)} : null;
+  }finally{ inflight = false; }
+}
+
+async function startSarvam(){
+  let stream;
+  try{ stream = await navigator.mediaDevices.getUserMedia({audio:true}); }
+  catch(e){ micBlocked(); return; }
+  const type = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "audio/mp4";
+  rec = new MediaRecorder(stream,{mimeType:type});
+  chunks=[]; liveText=""; inflight=false; recAbort=false; lastPartial=0;
+
+  rec.ondataavailable = e=>{
+    if(e.data.size) chunks.push(e.data);
+    if(rec.state==="recording") transcribeSoFar(type, false);
+  };
+  rec.onstop = async ()=>{
+    clearInterval(partialTimer); clearTimeout(recMaxTimer);
+    stream.getTracks().forEach(t=>t.stop());     // mic off before anything else
+    $("#mic").classList.remove("live");
+    if(recAbort){ recAbort=false; return; }      // engine switched mid-capture
+    $("#hint").textContent = liveText ? liveText+" …" : "Transcribing…";
+    // wait for any partial still in flight, then do one authoritative pass
+    while(inflight) await new Promise(r=>setTimeout(r,60));
+    const d = await transcribeSoFar(type, true) || {};
+    if(d.error){ $("#hint").textContent="Speech error: "+String(d.error).slice(0,50); return; }
+    const t = (d.transcript||liveText||"").trim();
+    $("#hint").textContent = t
+      ? `heard ${LANGNAME[d.language]||d.language||""} · tap to speak again`
+      : "Didn't catch that";
+    if(t) run(t, null, d);
+  };
+  // timeslice fires ondataavailable periodically -> live partial transcripts
+  rec.start(1200);
+  clearTimeout(recMaxTimer);
+  recMaxTimer = setTimeout(()=>{ if(rec && rec.state==="recording") rec.stop(); }, 20000);
+  $("#mic").classList.add("live");
+  $("#hint").textContent="Listening… tap to stop";
+}
+
+$("#mic").addEventListener("click",()=>{
+  if(STT==="live"){
+    if(liveWS) stopLive(); else startLive();
+    return;
+  }
+  if(STT==="sarvam"){
+    if(rec && rec.state==="recording") rec.stop(); else startSarvam();
+    return;
+  }
+  if(!SR){ $("#hint").textContent="Speech not supported here — type instead"; return; }
+  const r=new SR(); srActive=r; r.lang=LANG; r.interimResults=true; r.maxAlternatives=5;
+  let final="", alts=[];
+  r.onstart=()=>{ $("#mic").classList.add("live"); $("#hint").textContent="Listening…"; };
+  r.onresult=e=>{
+    let interim="";
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const res=e.results[i];
+      if(res.isFinal){
+        final+=res[0].transcript;
+        for(let k=0;k<res.length;k++){
+          const t=res[k].transcript.trim();
+          if(t && !alts.includes(t)) alts.push(t);
+        }
+      } else interim+=res[0].transcript;
+    }
+    $("#q").value = final||interim;
+    $("#hint").textContent = final||interim||"Listening…";
+  };
+  r.onerror=e=>{ srActive=null; $("#mic").classList.remove("live");
+    if(e.error==="not-allowed"||e.error==="service-not-allowed") return micBlocked();
+    $("#hint").textContent="Mic error: "+e.error; };
+  r.onend=()=>{
+    const aborted = srActive!==r; srActive=null;
+    $("#mic").classList.remove("live");
+    if(aborted) return;
+    const t=$("#q").value.trim();
+    if(t){ $("#hint").textContent="Tap and speak"; run(t, alts); }
+    else $("#hint").textContent="Didn't catch that — try again";
+  };
+  r.start();
+});
+
+$("#go").addEventListener("click",()=>run($("#q").value.trim()));
+$("#q").addEventListener("keydown",e=>{ if(e.key==="Enter") run($("#q").value.trim()); });
+
+// ---- compare: every arm on one utterance, read side by side -----------------
+const ARM_NOTE = {
+  Dictionary:"exact lookup - lexicon + synonyms",
+  Vector:"nearest embedded name",
+  Model:"Sarvam, catalogue vocabulary in prompt",
+  Auto:"what the router actually chose"
+};
+async function compare(t){
+  if(!t) return;
+  const box=$("#compare"); box.classList.add("on");
+  box.innerHTML=`<div class="cmphead"><div class="said"><small>you said</small>${esc(t)}</div>
+    <div class="cmpfact"><small>status</small>running all four arms…</div></div>`;
+  let d;
+  try{
+    d = await (await fetch("/api/compare",{method:"POST",
+      headers:{"content-type":"application/json"},body:JSON.stringify({transcript:t})})).json();
+  }catch(e){ box.innerHTML=`<div class="cmphead"><div class="said">compare failed: ${esc(String(e))}</div></div>`; return; }
+  if(d.error){ box.innerHTML=`<div class="cmphead"><div class="said">${esc(d.error)}</div></div>`; return; }
+
+  const auto=d.arms.find(a=>a.arm==="Auto")||{};
+  const facts=[];
+  facts.push(`<div class="cmpfact"><small>router</small><b>${esc(auto.routed||"?")}</b><br>${esc(d.reason||"")}</div>`);
+  if(d.corrections&&d.corrections.length)
+    facts.push(`<div class="cmpfact"><small>corrected</small>${d.corrections.map(c=>esc(c.heard)+" &rarr; <b>"+esc(c.intended)+"</b>").join("<br>")}</div>`);
+  if(d.spelling_fixes&&d.spelling_fixes.length)
+    facts.push(`<div class="cmpfact"><small>spell-fixed</small>${d.spelling_fixes.map(f=>esc(f.heard)+" &rarr; <b>"+esc(f.matched)+"</b>").join("<br>")}</div>`);
+  if(d.unknown_words&&d.unknown_words.length)
+    facts.push(`<div class="cmpfact"><small>not recognised</small><b>${esc(d.unknown_words.join(", "))}</b></div>`);
+  const head=`<div class="cmphead">
+    <div class="said"><small>you said</small>${esc(d.heard||d.transcript)}</div>${facts.join("")}</div>`;
+
+  const cards=d.arms.map(a=>{
+    const same = a.arm!=="Auto" && auto.keywords && a.keywords===auto.keywords;
+    const stats=[];
+    stats.push(`<span class="stat">${a.ms}ms</span>`);
+    if(a.search_ms!=null) stats.push(`<span class="stat">+${a.search_ms}ms search</span>`);
+    else if(a.retrieval==="direct") stats.push(`<span class="stat">no search call</span>`);
+    if(a.error) stats.push(`<span class="stat zero">error</span>`);
+    else if(a.redirect) stats.push(`<span class="stat ok">collection page</span>`);
+    else if(a.retrieval==="direct") stats.push(`<span class="stat ${a.total?"ok":"zero"}">${a.total||0} candidate${a.total===1?"":"s"}</span>`);
+    else stats.push(`<span class="stat ${a.total?"ok":"zero"}">${a.total||0} result${a.total===1?"":"s"}</span>`);
+    const prods=(a.products||[]).map(p=>`<li>${p.image?`<img src="${esc(p.image)}" alt="" loading="lazy">`:""}
+        <span>${esc(p.title||"")}<span class="pr">${p.price?`&#8377;${esc(String(p.price))}`:""}${
+          p.score!=null?`<em class="sc">${p.score.toFixed(2)}</em>`:""}${
+          p.matched?`<em class="mt">via “${esc(p.matched)}”</em>`:""}</span></span></li>`).join("");
+    let filt="";
+    if(a.filters){
+      const ap=a.filters.applied||{};
+      const chips=Object.keys(ap).map(k=>`<span class="fchip">${esc(k.replace(/^product_/,"").replace(/_/g," "))}: <b>${esc(ap[k])}</b></span>`).join("");
+      if(chips) filt=`<div class="filtbar"><small>narrowed by</small>${chips}
+        <span class="narrow">${a.filters.base_total} &rarr; ${a.filters.filtered_total}</span></div>`;
+      else if(a.filters.note) filt=`<div class="filtbar"><small>no filter</small><span class="fnote">${esc(a.filters.note)}</span></div>`;
+    }
+    const body = filt + (prods ? `<ol>${prods}</ol>`
+      : `<div class="none-msg">${a.error?esc(a.error):a.redirect?"Merchandised redirect — a collection page, not a product list.":"No products returned."}</div>`);
+    return `<div class="arm a-${a.arm.toLowerCase()}">
+      <div class="top">
+        <h4>${esc(a.arm)} ${same?`<span class="pin">chosen</span>`:""}</h4>
+        <div class="kw ${a.keywords?"":"none"}">${esc(a.keywords||"nothing")}</div>
+        <div class="statrow">${stats.join("")}</div>
+      </div>
+      <div class="meta">${esc(a.engine||ARM_NOTE[a.arm]||"")}${a.notes?" · "+esc(a.notes):""}</div>
+      ${body}
+    </div>`;
+  }).join("");
+  box.innerHTML=head+`<div class="cmpscroll"><div class="cmpgrid">${cards}</div></div>`;
+  const r=box.getBoundingClientRect();
+  if(r.top > window.innerHeight - 120) box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+const _cmpBtn=$("#cmp");
+if(_cmpBtn) _cmpBtn.addEventListener("click",()=>compare($("#q").value.trim()||(LAST&&LAST.transcript)));
+
+
+let running=false;
+async function run(transcript, alternatives, stt){
+  if(!transcript || running) return;
+  running=true; $("#go").disabled=true;
+  if(!stt) resetHint();                 // typed search - drop any stale mic message
+  try{
+    await doRun(transcript, alternatives, stt);
+    compare(transcript);
+  }
+  finally{ running=false; $("#go").disabled=false; }
+}
+
+async function doRun(transcript, alternatives, stt){
+  $("#results").innerHTML=`<div class="empty">Working…</div>`;
+  const t0=performance.now();
+  const u=await (await fetch("/api/understand",{method:"POST",
+    headers:{"content-type":"application/json"},body:JSON.stringify({transcript,alternatives,engine:ENGINE})})).json();
+  const t1=performance.now();
+  const item=(u.items&&u.items[0])||{};
+  const raw=String(u.transcript||transcript).trim();
+  // Never let the intent layer swallow the customer's own words. If it
+  // produced nothing, search what they actually said.
+  let q=[item.brand,item.keywords].filter(Boolean).join(" ").trim() || raw;
+  // Pass the attributes through so the server can narrow with a real filter.
+  // Without them "bwp plywood" is just two keywords and the grade is ignored.
+  const search=async (v,useAttrs=true)=>(await (await fetch("/api/search",{method:"POST",
+    headers:{"content-type":"application/json"},
+    body:JSON.stringify(useAttrs?{q:v,brand:item.brand,attrs:item.attrs}:{q:v})})).json());
+  let s=await search(q), fellBack=false;
+  // The keyword the model invented found nothing, but the word the customer
+  // said may be a product title ("gurmala" -> Haks Plaster Trowel Gurmala).
+  const empty=r=>!r||r.error||(!r.redirect&&((r.total??(r.products||[]).length)===0));
+  if(empty(s) && raw && raw.toLowerCase()!==q.toLowerCase()){
+    const s2=await search(raw,false);
+    if(!empty(s2)){ s=s2; q=raw; fellBack=true; }
+  }
+  const t2=performance.now();
+
+  const qtyTxt=item.quantity?`${item.quantity}${item.unit?" "+item.unit:""}`:"—";
+  const byModel = !!u.engine && u.engine!=="rules";
+  const engLbl  = byModel ? (u.engine.split(":")[0].toUpperCase()) : "rules";
+  $("#trace").className="trace on";
+  $("#trace").innerHTML=`
+    <div class="step"><div class="num">01</div><div>
+      <div class="lbl">Transcript</div><div class="val">${esc(u.transcript||transcript)}
+        ${stt&&stt.engine?`<span class="tag">${esc(stt.engine)}${
+          stt.confidence?" "+Number(stt.confidence).toFixed(2):""}</span>`:""}</div>
+      ${u.asr_alternatives&&u.asr_alternatives.length>1?`<div class="alts">${
+        u.asr_alternatives.map(a=>`<span class="alt${a.chosen?" on":""}">${esc(a.text)}
+          <b>${a.score}</b></span>`).join("")}</div>
+        <div class="val" style="font-size:11px;color:var(--ink-3);margin-top:3px">
+          what the mic heard · scored against the catalogue</div>`:""}
+      </div></div>
+    <div class="step"><div class="num">02</div><div>
+      <div class="lbl">Language detected</div>
+      <div class="val">${LANGNAME[u.language]||u.language||"?"}
+        <span class="tag ${byModel?"":"warn"}">${esc(engLbl)}</span></div></div></div>
+    <div class="step"><div class="num">03</div><div>
+      <div class="lbl">English query → Wizzy</div><div class="val mono">${esc(q)}</div>
+      ${u.spelling_fixes?`<div class="val" style="font-size:12px;color:var(--ink-3);margin-top:4px">
+        heard ${u.spelling_fixes.map(f=>`<b>${esc(f.heard)}</b> → ${esc(f.matched)}`).join(", ")}
+        · matched to the catalogue</div>`:""}
+      ${fellBack?`<div class="val" style="font-size:12px;color:var(--amber);margin-top:4px">
+        the intent layer's keyword found nothing — searched what the customer said instead</div>`:""}
+      ${u.intent?`<div class="val" style="font-size:12px;color:var(--ink-3);margin-top:4px">
+        ${esc({named:"customer named the product",described:"customer described it",
+               use_case:"inferred from the job they described"}[u.intent]||u.intent)}
+        ${u.confidence!=null?` · confidence ${Number(u.confidence).toFixed(2)}`:""}</div>`:""}
+      ${u.notes&&u.engine!=="rules"?`<div class="val" style="font-size:12px;color:var(--ink-3);margin-top:2px">${esc(u.notes)}</div>`:""}
+      </div></div>
+    <div class="step"><div class="num">04</div><div>
+      <div class="lbl">Quantity extracted</div><div class="val">${esc(qtyTxt)}</div></div></div>
+    <div class="step"><div class="num">05</div><div>
+      <div class="lbl">Latency</div><div class="val" style="font-variant-numeric:tabular-nums">
+        intent ${Math.round(t1-t0)} ms &middot; search ${Math.round(t2-t1)} ms
+        <span class="tag">${byModel?(u.cached?"model · cached":"model"):"dictionary"}</span>
+        <span class="tag ${s.engine==="wizzy"?"":"warn"}">${s.engine}</span></div></div></div>
+    ${u.items&&u.items.length>1?`<div class="step"><div class="num">!</div><div>
+      <div class="lbl">Additional items</div><div class="val mono">${u.items.slice(1).map(i=>esc(i.keywords)).join(" · ")}</div></div></div>`:""}
+    ${s.wizzy_error?`<div class="step"><div class="num">!</div><div>
+      <div class="lbl">Wizzy</div><div class="val" style="font-size:12px;color:var(--amber)">${esc(s.wizzy_error)}</div></div></div>`:""}`;
+
+  const prods=s.products||[];
+  let head=`<div class="rhead"><h2>Results</h2><span>${s.total??prods.length} matched</span></div>`;
+
+  const notStocked = (u.in_assortment===false) || (!s.redirect && (s.total??prods.length)===0);
+  if(notStocked){
+    head += `<div class="notstocked">
+      <div class="lbl">Not in assortment</div>
+      <div class="val">HomeRun doesn't appear to stock this.${
+        u.in_assortment===false&&u.notes?` ${esc(u.notes)}`:""}</div>
+      ${prods.length?`<div class="val" style="margin-top:3px">Closest things we do carry:</div>`:""}
+    </div>`;
+  }
+
+  if(s.redirect){
+    $("#results").innerHTML = head + `
+      <div class="redirect">
+        <div class="lbl">Merchandised redirect</div>
+        <div class="val">Wizzy routes <b>${esc(q)}</b> straight to a collection.</div>
+        <a href="${esc(s.redirect)}" target="_blank" rel="noopener">${esc(s.redirect.replace(/^https?:\/\//,""))}</a>
+      </div>`;
+    return;
+  }
+
+  $("#results").innerHTML = head +
+    (prods.length?prods.map(p=>{
+      const card=`
+        ${p.image?`<img src="${esc(p.image)}" alt="" loading="lazy">`:`<div class="ph"></div>`}
+        <div>
+          <div class="t">${esc(p.title)}</div>
+          <div class="m">${esc(p.type||"")}${p.inStock===false?` <span class="oos">out of stock</span>`:""}</div>
+          ${p.price?`<div class="p">₹${Number(p.price).toLocaleString("en-IN")}${
+            p.mrp&&p.mrp>p.price?` <s>₹${Number(p.mrp).toLocaleString("en-IN")}</s>`:""}</div>`:""}
+          ${p.variants&&p.variants.length?`<div class="vr">${p.variants.slice(0,4).map(v=>
+            // Wizzy sends variant.title as {value, swatch, inStock, ...}, not a string
+            esc(v&&v.title&&typeof v.title==="object"?(v.title.value||""):(v.title||""))
+          ).filter(Boolean).join(" · ")}</div>`:""}
+        </div>`;
+      return p.url?`<a class="card" href="${esc(p.url)}" target="_blank" rel="noopener">${card}</a>`
+                  :`<div class="card">${card}</div>`;
+    }).join("")
+     :`<div class="empty">Nothing matched <b>${esc(q)}</b>.</div>`);
+
+  LAST = {transcript: u.transcript||transcript, language: u.language,
+          stt_engine: (stt&&stt.engine)||"typed", keywords: item.keywords,
+          brand: item.brand, quantity: item.quantity, unit: item.unit,
+          routed: u.routed, intent_engine: u.engine, in_assortment: u.in_assortment,
+          hits: s.total??prods.length,
+          top_result: prods.length?prods[0].title:"",
+          latency_intent_ms: Math.round(t1-t0), latency_search_ms: Math.round(t2-t1)};
+  showFeedback();
+}
+</script>
+</body>
+</html>

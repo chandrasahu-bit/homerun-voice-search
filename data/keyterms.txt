@@ -1,0 +1,22 @@
+# KEYTERMS — brand/trade words to bias Sarvam's ASR toward.
+# Sent verbatim to saaras:v4 as the `keyterms` param (realtime STT, NOT the
+# intent LLM). Cap is 50 terms / 64 chars each - the API truncates past that,
+# so keep the list short and prioritised, not "every brand in vocab.json".
+#
+# Why this exists: generic ASR has no prior for invented/Indian brand names
+# ("Roff", "Gurmala") and reaches for the nearest fluent English phrase
+# instead ("rough tile seo"). corrections.csv patches that after the fact;
+# this stops it from happening in the first place. Keep both - keyterms bias
+# recognition, they do not guarantee it, so corrections.csv is still the
+# safety net for whatever slips through.
+#
+# One term per line. Blank lines and '#' comments are ignored. Re-read on
+# every new browser connection - no restart needed to add a word.
+Roff
+Thinner
+trowel
+Tresa
+Gurmala
+Araldite
+Latapoxy
+tap

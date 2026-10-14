@@ -1,0 +1,1926 @@
+{
+ "Adhesive Tapes": {
+  "Size": [
+   "12mm x 5meter",
+   "24mm x 5meter"
+  ]
+ },
+ "Boilo Boards": {
+  "Thickness": [
+   "12mm",
+   "16mm",
+   "18mm"
+  ]
+ },
+ "HDHMR Boards": {
+  "Thickenss": [
+   "12mm",
+   "16mm",
+   "18mm",
+   "25mm",
+   "3mm",
+   "5.5mm",
+   "8mm"
+  ]
+ },
+ "MDF Boards": {
+  "Thickness": [
+   "11mm",
+   "17mm",
+   "25mm",
+   "3.3mm",
+   "4mm",
+   "5.5mm",
+   "7.3mm"
+  ]
+ },
+ "Blank Plates & Mounting Plates": {
+  "Size": [
+   "12 Module",
+   "16 Module",
+   "18 Module",
+   "2 Module",
+   "3 Module",
+   "4 Module",
+   "6 Module",
+   "8 Module",
+   "8 Module(Horizontal)",
+   "8 Module(Square)"
+  ],
+  "Colour": [
+   "Charcoal Grey",
+   "Classic White",
+   "Ice Black",
+   "Ice White",
+   "Pearl Champagne"
+  ]
+ },
+ "Junction & Concealed Boxes": {
+  "Size": [
+   "12 Module",
+   "16 Module",
+   "18 Module",
+   "19mm",
+   "19mm/0.75\"",
+   "2 Module",
+   "25mm",
+   "25mm/1\"",
+   "3 Module",
+   "4 Module",
+   "6 Module",
+   "8 Module(Horizontal)"
+  ],
+  "Type": [
+   "Deep",
+   "Surface"
+  ],
+  "Ways": [
+   "3 Way",
+   "3 way",
+   "4 Way",
+   "4 way"
+  ],
+  "Module": [
+   "2 Module",
+   "3 Module",
+   "4 Module",
+   "8 Module"
+  ],
+  "Color": [
+   "Black",
+   "White"
+  ]
+ },
+ "Single Core FR Wires": {
+  "Coil Size": [
+   "180 Meters",
+   "90 Meters"
+  ],
+  "Wire Thickness": [
+   "1 Sqmm",
+   "1 Sqmm(300m Coil)",
+   "1 sqmm",
+   "1.5 Sqmm",
+   "1.5 Sqmm(300m Coil)",
+   "1.5 sqmm",
+   "2.5 Sqmm",
+   "2.5 Sqmm(300m Coil)",
+   "2.5 sqmm",
+   "4 Sqmm",
+   "4 Sqmm(200m Coil)",
+   "4 sqmm",
+   "6 Sqmm",
+   "6 Sqmm(200m Coil)",
+   "6 sqmm"
+  ],
+  "Colour": [
+   "Black",
+   "Blue",
+   "Green",
+   "Red",
+   "Yellow"
+  ],
+  "Size": [
+   "1 sqmm",
+   "1.5 sqmm",
+   "2.5 sqmm",
+   "4 sqmm"
+  ],
+  "Color": [
+   "Black",
+   "Blue",
+   "Green",
+   "Red",
+   "Yellow"
+  ]
+ },
+ "FR-LSH & Low Smoke Wires": {
+  "Coil Size": [
+   "180 Meters",
+   "90 Meters"
+  ],
+  "Wire Thickness": [
+   "1 Sqmm",
+   "1 Sqmm(300m Coil)",
+   "1.5 Sqmm",
+   "1.5 Sqmm(300m Coil)",
+   "2.5 Sqmm",
+   "2.5 Sqmm(300m Coil)",
+   "4 Sqmm",
+   "4 Sqmm(200m Coil)",
+   "6 Sqmm",
+   "6 Sqmm(200m Coil)"
+  ],
+  "Colour": [
+   "Black",
+   "Blue",
+   "Green",
+   "Red",
+   "Yellow"
+  ],
+  "Color": [
+   "Black",
+   "Blue",
+   "Green",
+   "Red",
+   "Yellow"
+  ],
+  "Size": [
+   "1 sqmm",
+   "1.5 sqmm",
+   "2.5 sqmm",
+   "4 sqmm"
+  ]
+ },
+ "Sockets & Power Outlets": {
+  "Current Rating": [
+   "6/16A",
+   "6A"
+  ],
+  "Model": [
+   "20A DP 2P+E",
+   "32A TP 3P+E"
+  ],
+  "Colour": [
+   "Charcoal Grey",
+   "Classic White"
+  ]
+ },
+ "Modular Switches": {
+  "Ways": [
+   "1 Way",
+   "2 Way"
+  ],
+  "Type": [
+   "Plain",
+   "With Indicator"
+  ],
+  "Colour": [
+   "Charcoal Grey",
+   "Classic White"
+  ]
+ },
+ "Safety Helmets": {
+  "Models": [
+   "PVC APEX - White",
+   "PVC APEX - Yellow"
+  ]
+ },
+ "Epoxy Adhesives": {
+  "Size": [
+   "1.08 Kg",
+   "1.80 Kg",
+   "450 g"
+  ]
+ },
+ "BWP Marine Plywood": {
+  "Thickness": [
+   "12mm",
+   "16mm",
+   "16mm (OEM)",
+   "19mm",
+   "19mm Blockboard",
+   "6mm",
+   "9mm"
+  ],
+  "Size": [
+   "12mm",
+   "6mm",
+   "7' X 4'",
+   "7' x 4'",
+   "7x4",
+   "8' X 4'",
+   "8' x 4'",
+   "8x4"
+  ]
+ },
+ "MR Grade Plywood": {
+  "Thickness": [
+   "12 mm",
+   "12mm",
+   "16 mm",
+   "16mm",
+   "16mm (Ecotec Select)",
+   "16mm (Maxima)",
+   "18 mm",
+   "18mm",
+   "19mm Blockboard",
+   "25mm Blockboard",
+   "6 mm",
+   "6mm",
+   "8 mm",
+   "8mm"
+  ],
+  "Size": [
+   "7 x 4",
+   "7' X 4'",
+   "8 x 4",
+   "8' X 4'"
+  ]
+ },
+ "Pullout & Pedal Waste Bins": {
+  "Color": [
+   "Blue",
+   "Green",
+   "Red",
+   "Yellow"
+  ],
+  "Size": [
+   "15L, 2 X 7.5L Separate Bins, SOWBR-15D",
+   "20L, 2 X 10L Single Bin with a Removable Separator, SOWBR-20D",
+   "65L"
+  ]
+ },
+ "Water Storage Tanks": {
+  "Capacity": [
+   "1000 L",
+   "1500 L",
+   "2000 L"
+  ]
+ },
+ "Brass Adaptors & Unions": {
+  "Size": [
+   "1 1/2'' (40mm)",
+   "1 1/4'' (32mm)",
+   "1\"",
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "1'' (25mm)",
+   "1/2\"",
+   "1/2\" (15mm)",
+   "1¼\"",
+   "1½\"",
+   "2\"",
+   "2'' (50mm)",
+   "3/4\"",
+   "3/4\" X 1/2\"",
+   "3/4'' (20mm)"
+  ],
+  "Sixe": [
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "3/4\" X 1/2\""
+  ]
+ },
+ "CPVC Pipes": {
+  "Size": [
+   "1 ¼\"",
+   "1\"",
+   "1/2\"",
+   "3/4\""
+  ]
+ },
+ "CPVC & PVC Solvent Cements": {
+  "Size": [
+   "100 ml",
+   "200 ml",
+   "50 ml",
+   "500 ml"
+  ]
+ },
+ "Brass Threaded Tees": {
+  "Size": [
+   "1\" X 1\"",
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "1/2\" X 1/2\"",
+   "1¼\" X 1/2\"",
+   "3/4\" X 1/2\"",
+   "3/4\" X 3/4\""
+  ]
+ },
+ "CPVC Elbows & Bends": {
+  "Size": [
+   "1 ¼\"",
+   "1 ½\"",
+   "1\"",
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "1/2\"",
+   "1¼\"",
+   "1¼\" X 1\"",
+   "1¼\" X 3/4\"",
+   "1½\"",
+   "2\"",
+   "3/4\"",
+   "3/4\" X 1/2\""
+  ]
+ },
+ "Brass Threaded Elbows": {
+  "Size": [
+   "1\" X 1\"",
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "1/2\" X 1/2\"",
+   "1¼\" X 1/2\"",
+   "1¼\" X 1¼\"",
+   "1¼\" X 3/4\"",
+   "3/4\" X 1/2\"",
+   "3/4\" X 3/4\""
+  ]
+ },
+ "CPVC Valves": {
+  "Size": [
+   "1 ¼\"",
+   "1 ½\"",
+   "1\"",
+   "1/2\"",
+   "2\"",
+   "3/4\""
+  ]
+ },
+ "CPVC Couplers & Unions": {
+  "Size": [
+   "1 ¼\"",
+   "1 ½\"",
+   "1\"",
+   "1\" X 1/2\"",
+   "1\" X 3/4\"",
+   "1/2\"",
+   "1¼\" X 1\"",
+   "1¼\" X 1/2\"",
+   "1¼\" X 3/4\"",
+   "1½\" X 1\"",
+   "1½\" X 1/2\"",
+   "1½\" X 1¼\"",
+   "1½\" X 3/4\"",
+   "2\"",
+   "2\" X 1\"",
+   "2\" X 1/2\"",
+   "2\" X 1¼\"",
+   "2\" X 1½\"",
+   "2\" X 3/4\"",
+   "3/4\"",
+   "3/4\" X 1/2\""
+  ]
+ },
+ "CPVC Adaptors & Plugs": {
+  "Size": [
+   "1 ¼\"",
+   "1 ½\"",
+   "1\"",
+   "1\" X 3/4\"",
+   "1''",
+   "1/2\"",
+   "1/2''",
+   "1¼\"",
+   "1½\"",
+   "2\"",
+   "2''",
+   "3/4\"",
+   "3/4\" X 1/2\"",
+   "3/4''"
+  ]
+ },
+ "CPVC Tees & Crosses": {
+  "Size": [
+   "1 ¼\"",
+   "1 ½\"",
+   "1\"",
+   "1\" X 1\" X 1/2\"",
+   "1\" X 1\" X 3/4\"",
+   "1/2\"",
+   "1¼\" X 1¼\" X 1\"",
+   "1¼\" X 1¼\" X 1/2\"",
+   "1¼\" X 1¼\" X 3/4\"",
+   "1½\" X 1½\"X 1\"",
+   "1½\" X 1½\"X 1/2\"",
+   "1½\" X 1½\"X 1¼\"",
+   "1½\" X 1½\"X 3/4\"",
+   "2\"",
+   "2\" X 2\" X 1\"",
+   "2\" X 2\" X 1/2\"",
+   "2\" X 2\" X 1¼\"",
+   "2\" X 2\" X 1½\"",
+   "2\" X 2\" X 3/4\"",
+   "3/4\"",
+   "3/4\" X 3/4\" X 1/2\""
+  ]
+ },
+ "Pipe Clamps & Supports": {
+  "Size": [
+   "1\"",
+   "1/2\"",
+   "1¼\"",
+   "1½\"",
+   "2\"",
+   "3/4\""
+  ]
+ },
+ "Economy Exterior Emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Synthetic Enamels": {
+  "Colour": [
+   "Black (0801)",
+   "Blue Bell White (0J32)",
+   "Morning Glory (0765)",
+   "Signal Red (0520)",
+   "Sugared Nut (L126)",
+   "White (0908)"
+  ],
+  "Size": [
+   "1 L",
+   "4 L"
+  ]
+ },
+ "Premium Exterior Emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Luxury exterior emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Wood Polish & PU Coatings": {
+  "Size": [
+   "1L",
+   "20L",
+   "3L",
+   "4L",
+   "500ml"
+  ]
+ },
+ "Premium Interior Emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Luxury Interior Emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Interior Primers": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Crack Fill Compounds": {
+  "Size": [
+   "1 Kg",
+   "360g",
+   "5 Kg",
+   "500 g",
+   "900g"
+  ]
+ },
+ "Acrylic Damp Proof Coatings": {
+  "Size": [
+   "1L",
+   "20L",
+   "4L"
+  ],
+  "Quantity": [
+   "10L",
+   "1Kg",
+   "20L",
+   "500g"
+  ]
+ },
+ "Integral Waterproofing Compounds": {
+  "Size": [
+   "1 Kg",
+   "1L",
+   "20L",
+   "5 Kg",
+   "5L"
+  ]
+ },
+ "Economy Interior Emulsions": {
+  "Size": [
+   "10L",
+   "1L",
+   "20L",
+   "4L"
+  ]
+ },
+ "Wall Putty": {
+  "Size": [
+   "10Kg",
+   "1kg",
+   "20Kg",
+   "5kg"
+  ]
+ },
+ "Paint Brushes": {
+  "Size": [
+   "1 Inch",
+   "2 Inch",
+   "3 Inch",
+   "4 Inch"
+  ]
+ },
+ "Metal & Wood Primers": {
+  "Size": [
+   "1 L",
+   "1 Litres",
+   "4 L",
+   "4 Litres",
+   "500 ml"
+  ]
+ },
+ "Paint Rollers & Refills": {
+  "Size": [
+   "4 Inch",
+   "6 Inch",
+   "9 Inch (Exterior)",
+   "9 Inch (Interior)"
+  ]
+ },
+ "Exterior Primers": {
+  "Size": [
+   "10L",
+   "20L"
+  ]
+ },
+ "Sandpaper & Abrasives": {
+  "Grit": [
+   "100",
+   "120",
+   "150",
+   "180",
+   "220"
+  ]
+ },
+ "Thinners & Solvents": {
+  "Size": [
+   "1 L",
+   "1 Litre",
+   "3 L",
+   "3 Litre",
+   "5 L",
+   "500 ml"
+  ]
+ },
+ "BLDC Pedestal Fans": {
+  "Color": [
+   "Midnight Black",
+   "Snow White"
+  ]
+ },
+ "BLDC Ceiling Fans": {
+  "Colour": [
+   "Desert Pearl",
+   "Gloss White & Gold Ring/ White RG Ring",
+   "Gloss White FG1011",
+   "Ivory",
+   "Lustre Brown",
+   "Matte Brown & Black/ Copper Haze",
+   "Opal White",
+   "Seasand Ivory"
+  ]
+ },
+ "Saddles & Pipe Clips": {
+  "Diameter": [
+   "19mm/0.75\"",
+   "25mm/1\""
+  ]
+ },
+ "White Cement": {
+  "Size": [
+   "1 Kg",
+   "5 Kg",
+   "50 Kg"
+  ]
+ },
+ "Protection Sheets & Tarpaulins": {
+  "Size": [
+   "15 X 12 ft",
+   "24 X 18 ft"
+  ]
+ },
+ "Angle Grinders & Cutters": {
+  "Models": [
+   "750W - GWS 700",
+   "800W - GWS 800"
+  ],
+  "Wattage": [
+   "560W - DSM04-100A",
+   "900W - DSM21-100B"
+  ]
+ },
+ "Drills & Drivers": {
+  "Batteries": [
+   "1 x 2.0Ah Battery",
+   "2 x 2.0Ah Batteries"
+  ]
+ },
+ "Quartz Kitchen Sinks": {
+  "Size": [
+   "Big Bowl (24\" x 18\" x 8\")",
+   "Magic Salsa Pro (18\" x 16\" x 8\")",
+   "Salsa Max (21\" x 18\" x 8\")"
+  ],
+  "Models": [
+   "FS 2118 NQ-Black-21x18x8\"",
+   "FS 2118 NQ-Wheat Spot-21x18x8\"",
+   "FS 2418 NQ-Black-24x18x8\"",
+   "FS 2418 NQ-Wheat Spot-24x18x8\"",
+   "FS 3119 NQ-Black-31x19x8.5\"",
+   "FS 3618NQ-Black-36x18x9\""
+  ]
+ },
+ "Bottle Traps & Wastes": {
+  "Size": [
+   "150 mm (F8060101)",
+   "300 mm (F8060401)"
+  ],
+  "Variants": [
+   "32mm Full Thread (Wash Basin), ALE-544NFT",
+   "40mm Half Thread (Kitchen Sink), ALE-543HT"
+  ]
+ },
+ "Waste Couplings": {
+  "Thread Type": [
+   "Full Thread (F8050101)",
+   "Half Thread (F8050102)"
+  ],
+  "Model": [
+   "ALD-CHR-705L130",
+   "ALD-CHR-727L130"
+  ]
+ },
+ "Exhaust Fans": {
+  "Size": [
+   "150mm/6\"",
+   "200mm/8\""
+  ]
+ },
+ "Storage Water Heaters": {
+  "Capacity": [
+   "10-L",
+   "15-L"
+  ],
+  "Installation Side": [
+   "Left Side",
+   "Right Side"
+  ]
+ },
+ "Instant Water Heaters": {
+  "Capacity": [
+   "3L"
+  ]
+ },
+ "Standard Ceiling Fans": {
+  "Colour": [
+   "Brown",
+   "Ivory",
+   "Opal White"
+  ],
+  "Color": [
+   "Brown",
+   "Ivory"
+  ]
+ },
+ "CAT6 LAN Cables": {
+  "Length": [
+   "305m"
+  ],
+  "Color": [
+   "Grey",
+   "Yellow"
+  ]
+ },
+ "Cable Glands & Lugs": {
+  "Models": [
+   "1.5 sqmm (CAT CPI-17)",
+   "1.5 sqmm / M3.5 Stud (CAT RS-7249)",
+   "1.5 sqmm / M4 Stud (CAT RS-7004)",
+   "2.5 sqmm (CAT CPI-18)",
+   "2.5 sqmm / M3.5 Stud (CAT RS-7251)",
+   "2.5 sqmm / M4 Stud (CAT RS-7009)",
+   "2.5 sqmm / M5 Stud (CAT RS-7010)",
+   "4 sqmm (CAT CPI-20)",
+   "4-6 sqmm / M3.5 Stud (CAT RS-7253)",
+   "4-6 sqmm / M6 Stud (CAT RS-7017)",
+   "6 sqmm (CAT CPI-22)"
+  ]
+ },
+ "Silicone Sealants": {
+  "Colour": [
+   "Black",
+   "Clear",
+   "Grey",
+   "White"
+  ]
+ },
+ "Cementitious Waterproof Coatings": {
+  "Size": [
+   "15kg",
+   "3kg"
+  ]
+ },
+ "SBR Latex & Bonding Agents": {
+  "Size": [
+   "1kg",
+   "5kg"
+  ]
+ },
+ "Aluminium Shutter Profiles": {
+  "Finish": [
+   "Black (EP-1819L-3M-AB)",
+   "Chrome (EP-1819L-3M-CP)",
+   "Special Finish (EP-1819L-3M-SF)"
+  ]
+ },
+ "Shutter Grills": {
+  "Size": [
+   "150mm/6\"",
+   "300mm/12\""
+  ],
+  "Finish": [
+   "AB/BL (Black)",
+   "AS (Anodized Silver)",
+   "SF (Special Finish)"
+  ]
+ },
+ "Bottle Pullouts": {
+  "Width": [
+   "150mm/6\" Wide, Fits 200mm/8\" Cabinet, BPO2SC2-150",
+   "200mm/8\" Wide, Fits 250mm/10\" Cabinet, BPO2SC2-200",
+   "250mm/10\" Wide, Fits 300mm/12\" Cabinet, BPO2SC2-250"
+  ],
+  "Cabinet Width": [
+   "134mm/5.25\", Fits 200mm/8\" Cabinet (9191708)",
+   "174mm/6.8\", Fits 240mm/9.5\" Cabinet (9247908)",
+   "234mm/9.2\", Fits 300mm/12\" Cabinet (9191711)",
+   "98mm/4\", Fits 150mm/6\" Cabinet (9191703)"
+  ]
+ },
+ "Shelf Supports & Stiffeners": {
+  "Variant": [
+   "Glass Shelf (PSS1)",
+   "Wooden Shelf (PSS2)"
+  ]
+ },
+ "SS Kitchen Baskets": {
+  "Basket Width": [
+   "380mm/15\"",
+   "380mm/15\" (RA-15-20-4-CS)",
+   "380mm/15\" (RA-15-20-4-CT)",
+   "380mm/15\" (RA-15-20-6-PL)",
+   "430mm/17\"",
+   "430mm/17\" (RA-17-20-4-CS)",
+   "430mm/17\" (RA-17-20-4-CT)",
+   "430mm/17\" (RA-17-20-6-PL)",
+   "480mm/19\"",
+   "480mm/19\" (RA-19-20-4-CS)",
+   "480mm/19\" (RA-19-20-4-CT)",
+   "480mm/19\" (RA-19-20-6-PL)",
+   "530mm/21\"",
+   "530mm/21\" (RA-21-20-4-CS)",
+   "530mm/21\" (RA-21-20-4-CT)",
+   "530mm/21\" (RA-21-20-6-PL)"
+  ],
+  "Cabinet Width": [
+   "380mm/15\"",
+   "430mm/17\"",
+   "480mm/19\"",
+   "530mm/21\""
+  ],
+  "Basket Height": [
+   "150mm/6\"",
+   "200mm/8\""
+  ]
+ },
+ "Sliding & Bi-Fold Mechanisms": {
+  "Opening Side": [
+   "Left Side Opening",
+   "Right Side Opening"
+  ],
+  "Cabinet Width": [
+   "600mm/24\"",
+   "720mm/28.5\""
+  ],
+  "Door Count": [
+   "2 Doors",
+   "3 Doors"
+  ],
+  "Track": [
+   "12FT",
+   "8FT",
+   "Without Track"
+  ]
+ },
+ "Dish Drainers & Trays": {
+  "Sizes": [
+   "550mm/22\" (DT22-10)",
+   "760mm/30\" (DT30-10)",
+   "860mm/34\" (DT34-10)"
+  ],
+  "Tray": [
+   "Glass Tray",
+   "Plate Tray"
+  ],
+  "Size": [
+   "550mm/22\"",
+   "760mm/30\"",
+   "860mm/34\""
+  ],
+  "Cabinet Width": [
+   "600mm/24\" (9206160)",
+   "900mm/36\" (9206161)"
+  ]
+ },
+ "LED Strip Lights": {
+  "Length": [
+   "412mm (L-L2G8-412)",
+   "562mm (L-L2G8-562)",
+   "862mm (L-L2G8-862)"
+  ],
+  "Colour": [
+   "Cool White",
+   "Natural White",
+   "Warm White"
+  ],
+  "Colour Temperature": [
+   "Cool White (6500K)",
+   "Natural White (4000K)",
+   "Warm White (3000K)"
+  ],
+  "Color": [
+   "Neutral White/ 4000K",
+   "Warm White/ 2700K"
+  ]
+ },
+ "Magic Corners": {
+  "Opening Side": [
+   "Left Side Opening (MCM90-L-AT)",
+   "Right Side Opening (MCM90-R-AT)"
+  ],
+  "Basket Type": [
+   "Glass Baskets (MCDP90G)",
+   "Metal Baskets (MCDP90)"
+  ]
+ },
+ "Bed Lift Gas Pumps & Fittings": {
+  "Size": [
+   "M6, PLBF-M6K",
+   "M8, PLBF-M8K"
+  ],
+  "Weight Capacity": [
+   "150 Kg, PLBF-150C",
+   "200 Kg, PLBF-200C-HD"
+  ]
+ },
+ "Pantry & Larder Units": {
+  "Basket Type": [
+   "Powder Coated Steel Basket",
+   "Tempered Glass Basket"
+  ],
+  "Cabinet Width": [
+   "450mm/18\"",
+   "450mm/18\" (9346296 + 9347696)",
+   "600mm/24\"",
+   "600mm/24\" (9346297 + 9347697)"
+  ]
+ },
+ "Cabinet Lift-Up Fittings": {
+  "Weight Capacity": [
+   "10 Kg",
+   "6 Kg"
+  ],
+  "Mechanism": [
+   "Regular Close",
+   "Soft Close"
+  ]
+ },
+ "Tandem Box Systems": {
+  "Depth": [
+   "16\" (400mm)",
+   "18\" (450mm)",
+   "20\" (500mm)"
+  ],
+  "Tandem Height": [
+   "10'' (203mm)",
+   "144mm/6\" (9243093)",
+   "176mm/8\" (9346354)",
+   "4'' (90mm)",
+   "6'' (122mm)",
+   "70mm/4\" (9243085)",
+   "8'' (172mm)"
+  ],
+  "Drawer size": [
+   "101mm/4\" (9343355)",
+   "187mm/7\" (9343356)",
+   "251mm/10\" (9343357)"
+  ]
+ },
+ "PVC Skirting & Plinths": {
+  "Type": [
+   "Corner Joint (CJ90-10-BL)",
+   "End Joint (EJ-10-BL)",
+   "Straight Joint (SJ-10-BL)"
+  ],
+  "Skirting Accessory": [
+   "Q Plinth 100 (without Screw)",
+   "Skirting Clip For Q Plinth"
+  ]
+ },
+ "Rolling Shutter Systems": {
+  "Width": [
+   "450mm/18\"",
+   "600mm/24\"",
+   "900mm/36\""
+  ],
+  "Finish": [
+   "AT (Anthracite)",
+   "BL (Black)",
+   "FG (Frozen Glass)",
+   "FW (Frosty White)",
+   "GW (Glossy White)",
+   "MC (Mocha)",
+   "SF (Special Finish)",
+   "SL (Silver)"
+  ]
+ },
+ "Corner & Side Pullouts": {
+  "Cabinet Width": [
+   "100mm/4\"",
+   "150 mm/6\"(9346306)",
+   "150mm/6\"",
+   "200 mm/8\"(9346309)",
+   "200mm/8\"",
+   "300 mm/12\"(9346310)"
+  ],
+  "Cabinet Height": [
+   "432mm/17\" (2 Tier)",
+   "533mm/21\" (3 Tier)"
+  ]
+ },
+ "Telescopic Drawer Channels": {
+  "Length": [
+   "200mm/8\" (9293321)",
+   "250mm/10\" (9215435)",
+   "250mm/10\" (9347743)",
+   "250mm/10\" (STDS25-I-35)",
+   "300mm/12\" (9215436)",
+   "300mm/12\" (9318185)",
+   "300mm/12\" (STDS30-I-35)",
+   "300mm/12\" (STDS30-I-35-SC)",
+   "350mm/14\" (9215437)",
+   "350mm/14\" (9318189)",
+   "350mm/14\" (STDS35-I-35)",
+   "350mm/14\" (STDS35-I-35-SC)",
+   "400mm/16\" (209240)",
+   "400mm/16\" (9318193)",
+   "400mm/16\" (STDS40-I-35)",
+   "400mm/16\" (STDS40-I-35-SC)",
+   "450mm/18\" (9209239)",
+   "450mm/18\" (9318195)",
+   "450mm/18\" (STDS45-I-35)",
+   "450mm/18\" (STDS45-I-35-SC)",
+   "500mm/20\" (9193319)",
+   "500mm/20\" (9318197)",
+   "500mm/20\" (STDS50-I-35)",
+   "500mm/20\" (STDS50-I-35-SC)",
+   "550mm/22\" (9215441)",
+   "550mm/22\" (9318200)",
+   "550mm/22\" (STDS55-I-35)",
+   "550mm/22\" (STDS55-I-35-SC)",
+   "600mm/24\" (9215442)",
+   "600mm/24\" (9347744)",
+   "600mm/24\" (STDS60-I-35)",
+   "600mm/24\" (STDS60-I-35-SC)",
+   "650mm/26\" (9215443)",
+   "650mm/26\" (9347746)",
+   "700mm/28\" (9215444)",
+   "700mm/28\" (9347747)"
+  ],
+  "Size": [
+   "300mm/12\" (9114271)",
+   "350mm/14\" (9114273)",
+   "400mm/16\" (9114274)",
+   "450mm/18\" (9114275)",
+   "500mm/20\" (9114276)",
+   "550mm/22\" (9114277)",
+   "600mm/24\" (9114278)",
+   "650mm/26\" (9114279)",
+   "700mm/28\" (9114280)"
+  ]
+ },
+ "Regular Close Cabinet Hinges": {
+  "Crank": [
+   "0 Crank (9428615)",
+   "0 Crank (E-HS1)",
+   "16 Crank (9428617)",
+   "16 Crank (E-HS3)",
+   "8 Crank (E-HS2)",
+   "8/9.5 Crank (9428616)"
+  ]
+ },
+ "Soft Close Cabinet Hinges": {
+  "Crank": [
+   "0 Crank (9281432)",
+   "0 Crank (9352773)",
+   "0 Crank (HSMS1A -NP)",
+   "16 Crank (9336592)",
+   "16 Crank (9352775)",
+   "16 Crank (HSMS3A -NP)",
+   "8 Crank (HSMS2A -NP)",
+   "8/9.5 Crank (9281434)",
+   "8/9.5 Crank (9352774)"
+  ]
+ },
+ "Wardrobe Rails & Brackets": {
+  "Size": [
+   "1 Meter",
+   "2 Meter",
+   "3.66 Meter"
+  ],
+  "Finish": [
+   "AC (Champagne)",
+   "CP (Chrome Plated)"
+  ]
+ },
+ "Wicker Baskets": {
+  "Cabinet Outer Width": [
+   "450mm/18\"",
+   "600mm/24\""
+  ],
+  "Height": [
+   "100mm/4\"",
+   "120mm/5\"",
+   "150mm/6\"",
+   "200mm/8\"",
+   "210mm/8\"",
+   "300mm/12\""
+  ],
+  "Basket Width": [
+   "320mm/12.5\"",
+   "370mm/14.5\"",
+   "420mm/16.5\"",
+   "520mm/20.5\""
+  ]
+ },
+ "Wiring Accessories": {
+  "Length": [
+   "16.4 Meter",
+   "8.2 Meter"
+  ],
+  "Qty": [
+   "1kg",
+   "2kg",
+   "3kg"
+  ]
+ },
+ "Hand Showers & Health Faucets": {
+  "Variants": [
+   "8mm Flexible Tube, ALE-CHR-593",
+   "Easy-Flex Tube, ALE-CHR-585",
+   "PVC Tube, ALE-CHR-583"
+  ],
+  "Shape": [
+   "Rectangular, HSH-CHR-85537",
+   "Round, HSH-CHR-1653",
+   "Round, HSH-CHR-1731",
+   "Square, HSH-CHR-1655"
+  ]
+ },
+ "Wall Mixers & Diverters": {
+  "Variants": [
+   "35mm Diverter, ALE-055",
+   "High-Flow Diverter, ALE-055HF",
+   "Wall-Mounted Basin Mixer, ALE-233"
+  ],
+  "Flow Type": [
+   "FLP-CHR-5065MKPM (For Normal Flow)",
+   "FLP-CHR-5079NKPM (For High Flow)",
+   "High Flow (ALD-CHR-079N)",
+   "Normal Flow (ALD-CHR-065M)"
+  ],
+  "Models": [
+   "Alive, ALI-CHR-85079NK",
+   "Kubix Prime, KUP-CHR-35079NKPM",
+   "Opal Prime, OPP-CHR-15079NKPM"
+  ]
+ },
+ "Angle & Stop Cocks": {
+  "Variants": [
+   "190mm & 125mm Pipes, ALE-773ML190X125",
+   "300mm & 125mm Pipes, ALE-773ML300X125"
+  ],
+  "Model": [
+   "AQT-CHR-3057(P)",
+   "KUP-CHR-35053PM"
+  ]
+ },
+ "Soap & Tissue Holders": {
+  "Variant": [
+   "Double Coat Hook, AEC-1161N",
+   "Single Robe Hook, AEC-1191N"
+  ],
+  "Model": [
+   "ACN-CHR-1153S",
+   "AKP-CHR-35753PS"
+  ]
+ },
+ "Towel Rails & Rings": {
+  "Variants": [
+   "450mm, AEC-1181NA",
+   "600mm, AEC-1181N"
+  ],
+  "Model": [
+   "ACN-CHR-1111SM",
+   "ACN-CHR-1121BN",
+   "AKP-CHR-35711PS",
+   "AKP-CHR-35721P"
+  ]
+ },
+ "Cupboard & Drawer Locks": {
+  "Lock Type": [
+   "Cupboard Lock (20mm Panel)",
+   "Drawer Lock (16mm Panel)"
+  ],
+  "Finish": [
+   "IV (Ivory)",
+   "SS (Stainless Steel)"
+  ]
+ },
+ "Cylindrical Door Locks": {
+  "Locking Mechanism": [
+   "5 Pin Key (C120)",
+   "Dimple Key (D120)",
+   "Keyless",
+   "Keyless (5805)",
+   "Keyless (C320)",
+   "With Key",
+   "With Keys (5808)"
+  ],
+  "Finish": [
+   "AB (Antique Brass)",
+   "SS (Stainless Steel)"
+  ]
+ },
+ "Deadbolt & Latchbolt Locks": {
+  "Finish": [
+   "AB (Antique Brass)",
+   "Antique Brass (3348)",
+   "Antique Brass (4453)",
+   "Antique Brass (AB), V321-AB",
+   "Antique Brass, J320-AB",
+   "NS (Nickel Steel)",
+   "Nickel Steel (NS), V321-ANS",
+   "Nickel Steel, J320-NS",
+   "SN (Satin Nickel)",
+   "Satin Nickel (3346)",
+   "Satin Nickel (4451)"
+  ],
+  "Locking Mechanism": [
+   "Knob On Inside (8113)",
+   "Knob on Inside",
+   "Lockable Knob with Key",
+   "Lockable Knob with Key (8123)"
+  ]
+ },
+ "Reflective Safety Jackets": {
+  "Models": [
+   "Green",
+   "Orange"
+  ],
+  "Color": [
+   "Green",
+   "Orange"
+  ]
+ },
+ "Kitchen Chimneys": {
+  "Size": [
+   "60 cm",
+   "75 cm",
+   "90 cm"
+  ]
+ },
+ "Safety Harnesses": {
+  "Models": [
+   "Full Body",
+   "Half Body"
+  ]
+ },
+ "Waterproof & Heat Resistant Adhesives": {
+  "Size": [
+   "1 L",
+   "1 kg",
+   "10 kg",
+   "2 kg",
+   "20 kg",
+   "5 L",
+   "5 kg",
+   "50 kg",
+   "500 ml"
+  ],
+  "Kg": [
+   "10 kg",
+   "20 kg",
+   "30 kg",
+   "5 kg",
+   "50 kg"
+  ]
+ },
+ "General Wood Adhesives": {
+  "Size": [
+   "1 Kg",
+   "10 Kg",
+   "2 Kg",
+   "20 Kg",
+   "30 Kg",
+   "5 Kg",
+   "50 Kg"
+  ],
+  "Kg": [
+   "1 Kg",
+   "10 Kg",
+   "5 Kg"
+  ]
+ },
+ "Multi Core Flexible Cables": {
+  "Wire Thickness": [
+   "1.5 Sqmm",
+   "2.5 Sqmm",
+   "4 Sqmm"
+  ]
+ },
+ "Speaker Cables": {
+  "Wire Thickness": [
+   "1 Sqmm",
+   "1.5 Sqmm"
+  ]
+ },
+ "Casing Capping & Flexible Conduit": {
+  "Colour": [
+   "Black",
+   "Grey",
+   "White"
+  ],
+  "Size": [
+   "19mm/0.75\"",
+   "20mm - 50 meters",
+   "25mm - 25 meters",
+   "25mm/1\"",
+   "35mm/1.4\""
+  ],
+  "Grade": [
+   "HMS",
+   "MMS"
+  ],
+  "Color": [
+   "Black",
+   "White"
+  ]
+ },
+ "Measuring Tapes": {
+  "Size": [
+   "3m x 16mm",
+   "5m x 19mm",
+   "7.5m x 25mm"
+  ]
+ },
+ "Floor Drains & Gratings": {
+  "Type": [
+   "With Locking System",
+   "Without Locking System"
+  ]
+ },
+ "Single Bowl SS Sinks": {
+  "Size": [
+   "14 x 12 x 7 Inch (FS 1412 HM)",
+   "18 x 16 x 8 Inch",
+   "21 x 18 x 8 Inch",
+   "24 x 18 x 8 Inch",
+   "24 x 18 x 9 Inch (FS 2418 HM)"
+  ]
+ },
+ "Insulation Tapes & Ties": {
+  "Sizes": [
+   "100mm",
+   "150mm",
+   "200mm",
+   "250mm",
+   "300mm"
+  ]
+ },
+ "Extension Boards & Adaptors": {
+  "Size": [
+   "2 Mtr",
+   "5 Mtr"
+  ]
+ },
+ "Calibrated Plywood": {
+  "Grade": [
+   "BWP",
+   "MR 303"
+  ]
+ },
+ "Chisels": {
+  "Size": [
+   "10 Inch",
+   "12 Inch",
+   "8 Inch"
+  ]
+ },
+ "Tie & Belt Racks": {
+  "Colour": [
+   "Grey",
+   "Mocha"
+  ],
+  "Size": [
+   "600mm/24\"",
+   "900mm/36\""
+  ]
+ },
+ "Cutlery Inserts & Trays": {
+  "Tray Width": [
+   "351-400mm/16\" (9194934)",
+   "401-450mm/18\" (9194935)",
+   "451-500mm/20\" (9194936)",
+   "501-600mm/24\" (9194937)",
+   "601-700mm/28\" (9194938)",
+   "701-800mm/32\" (9194939)",
+   "801-900mm/36\" (9194940)"
+  ]
+ },
+ "Drawer Runners": {
+  "Length": [
+   "300mm/12\" (9243229)",
+   "350mm/14\" (9243230)",
+   "400mm/16\" (9243231)",
+   "450mm/18\" (9243232)",
+   "500mm/20\" (9243233)",
+   "550mm/22\" (9243234)",
+   "600mm/24\" (9243235)"
+  ]
+ },
+ "Gumboots": {
+  "Variants": [
+   "Size - 7",
+   "Size - 8",
+   "Size - 9"
+  ]
+ },
+ "Overhead Showers": {
+  "Shape": [
+   "Round 100mm, OHS-CHR-1989",
+   "Round 120mm, OHS-CHR-1663",
+   "Round 200mm, OHS-CHR-1613",
+   "Square 120mm, OHS-CHR-1667"
+  ]
+ },
+ "Shower Systems": {
+  "Models": [
+   "2-Way Thermostatic, ALD-CHR-681N",
+   "3-Way Single Lever, ALD-CHR-783N",
+   "3-Way Thermostatic, ALD-CHR-683N",
+   "Alive, ALI-CHR-85683NK",
+   "Kubix Prime, KUP-CHR-35683NKPM",
+   "Opal Prime, OPP-CHR-15683NKPM"
+  ]
+ },
+ "Basin Mixers": {
+  "Size": [
+   "Single Lever Short (167mm), FLP-CHR-5001BPM",
+   "Single Lever Tall (283mm), FLP-CHR-5005BPM"
+  ]
+ },
+ "Wall Mount Sink Cocks": {
+  "Models": [
+   "Table Mount, FLP-CHR-5357PM",
+   "Wall Mount, FLP-CHR-5347PM"
+  ]
+ },
+ "Flush Plates & Actuators": {
+  "Models": [
+   "Alive, JCP-CHR-852415",
+   "Kubix, JCP-CHR-352415",
+   "Opal, JCP-CHR-152415"
+  ]
+ },
+ "Bath Tub Spouts": {
+  "Models": [
+   "Alive, SPJ-CHR-85429",
+   "Kubix Prime, SPJ-CHR-35429PM",
+   "Opal Prime, SPJ-CHR-15429PM"
+  ]
+ },
+ "Shower Arms & Hoses": {
+  "Shape": [
+   "Round, SHA-CHR-479L450",
+   "Round, SHA-CHR-479L600",
+   "Square, SHA-CHR-455L400"
+  ],
+  "Size": [
+   "12mm Dia. - SHA-CHR-549D12",
+   "8mm Dia. - SHA-CHR-549D8"
+  ]
+ },
+ "Concealed Cisterns": {
+  "Mounting Type": [
+   "Floor Mount (JCS-WHT-2400FS)"
+  ]
+ },
+ "Nails & Fasteners": {
+  "Size": [
+   "1.5\" - 38mm X 3.6mm",
+   "10mm",
+   "12mm",
+   "14mm",
+   "16mm",
+   "2'' - 50mm X 4mm",
+   "20mm",
+   "25mm",
+   "4mm",
+   "5mm",
+   "6mm",
+   "7mm",
+   "8mm",
+   "9mm"
+  ]
+ },
+ "MCBs & RCBOs": {
+  "Ampere": [
+   "16A",
+   "25A",
+   "32A"
+  ],
+  "Pole": [
+   "1 Pole",
+   "2 Pole",
+   "3 Pole",
+   "4 Pole"
+  ],
+  "Current Rating": [
+   "10A",
+   "20A",
+   "25A",
+   "32A",
+   "40A",
+   "63A"
+  ]
+ },
+ "Bell Push & Indicators": {
+  "Colour": [
+   "Charcoal Grey",
+   "Classic White"
+  ]
+ },
+ "Fan Regulators & Dimmers": {
+  "Colour": [
+   "Charcoal Grey",
+   "Classic White"
+  ]
+ },
+ "RCCBs": {
+  "Ampere": [
+   "25A",
+   "40A",
+   "63A"
+  ],
+  "Pole": [
+   "2 Pole",
+   "4 Pole"
+  ],
+  "Sensitivity": [
+   "30mA"
+  ]
+ },
+ "Masonry Hand Tools": {
+  "Shape": [
+   "Round",
+   "Square"
+  ]
+ },
+ "Chemical Anchors": {
+  "Size": [
+   "1 Kg",
+   "250 g"
+  ]
+ },
+ "Epoxy Tile Adhesives": {
+  "Size": [
+   "1 Kg",
+   "450 g"
+  ]
+ },
+ "Trowels & Floats": {
+  "Sizes": [
+   "Econ 12 (Notch Size: 12mm)",
+   "Econ 4  (Notch Size: 6mm)",
+   "Econ 7  (Notch Size: 7mm)"
+  ]
+ },
+ "PU & Marble Adhesives": {
+  "Size": [
+   "4Kg",
+   "8Kg"
+  ],
+  "Types": [
+   "Liquido",
+   "Solido"
+  ],
+  "Color": [
+   "Bianco 2 (Ultra White)",
+   "Paglierino (Ivory)"
+  ]
+ },
+ "Epoxy Tile Grouts": {
+  "Size": [
+   "1 Kg",
+   "1.25 kg (Suitable for 5Kg Epoxy)",
+   "250 g (Suitable for 1Kg Epoxy)",
+   "3.75 kg (Suitable for 5Kg Epoxy)",
+   "5 kg",
+   "750 g (Suitable for 1Kg Epoxy)"
+  ],
+  "Color": [
+   "03 Silk",
+   "04 Sable",
+   "07 Canyon Red",
+   "109 Burgundy",
+   "11 Inca Gold",
+   "22 Midnight Black",
+   "27 Hemp",
+   "35 Mocha",
+   "42 Platinum",
+   "44 Bright White",
+   "45 Raven",
+   "61 Parchment",
+   "78 Sterling Silver",
+   "85 Almond",
+   "88 Silver Shadow",
+   "89 Smoke Grey",
+   "91 Slate Grey",
+   "Coffee Brown",
+   "Ivory",
+   "Jet Black",
+   "Snow white",
+   "Steel Grey",
+   "Terracotta"
+  ]
+ },
+ "Tile Levelling Systems": {
+  "Size": [
+   "2mm",
+   "3mm"
+  ]
+ },
+ "Storage Racks & Shelving": {
+  "Unit": [
+   "2U",
+   "4U",
+   "6U"
+  ]
+ },
+ "Glass Patch Locks": {
+  "Finish": [
+   "Black Matt",
+   "Stainless Steel"
+  ],
+  "Model": [
+   "SS Strike Plate OPL-4A/S-K2N STD",
+   "Satin SS Strike Box OPL-4A/4B-K2N STD"
+  ]
+ },
+ "Door Closers": {
+  "Capacity": [
+   "OZ-SD-DC-40 - 40kg",
+   "OZ-SD-DC-60 - 60kg"
+  ]
+ },
+ "Glass Door Handles & Locks": {
+  "Size": [
+   "19 × 171 mm",
+   "25 × 300 mm - SSS",
+   "25 × 325 mm",
+   "25 × 325 mm - SSS",
+   "25 × 450 mm",
+   "25 × 450 mm - SSS",
+   "25 × 600 mm - SSS",
+   "32 × 457 mm - SSS",
+   "32 × 600 mm - SSS",
+   "32 × 900 mm - SSS"
+  ]
+ },
+ "COB Spotlights": {
+  "Wattage": [
+   "12W",
+   "7W"
+  ],
+  "Light Colour": [
+   "Cool Day Light/ 6500K",
+   "Cool White",
+   "Neutral White",
+   "Neutral White/ 4000K",
+   "Warm White",
+   "Warm White/ 2700K"
+  ],
+  "Colour Temperature": [
+   "Cool White (6500K)",
+   "Natural White (4000K)"
+  ],
+  "Watt": [
+   "12W",
+   "3W",
+   "6W",
+   "7W",
+   "9W"
+  ],
+  "Light Color": [
+   "Blue",
+   "Cool White / 6500K",
+   "Green",
+   "Neutral White / 4000K",
+   "Red",
+   "Warm White / 2700K"
+  ]
+ },
+ "Surface LED Panels": {
+  "Size": [
+   "12W",
+   "15W"
+  ],
+  "Wattage": [
+   "12W",
+   "15W",
+   "18W",
+   "6W"
+  ],
+  "Light Colour": [
+   "Cool Day White/ 6500K",
+   "Cool White",
+   "Natural White",
+   "Neutral White/ 4000K",
+   "Warm White",
+   "Warm White/ 2700K"
+  ]
+ },
+ "LED Drivers": {
+  "Wattage": [
+   "10A",
+   "120W 10A",
+   "5A",
+   "60W 5A",
+   "6A"
+  ]
+ },
+ "LED Battens & Tube Lights": {
+  "Light Colour": [
+   "Cool White",
+   "Natural White",
+   "Warm White"
+  ],
+  "Watt": [
+   "22W",
+   "36W"
+  ]
+ },
+ "LED Downlights": {
+  "Wattage": [
+   "10W",
+   "15W",
+   "5W",
+   "8W"
+  ],
+  "Light Colour": [
+   "Cool White",
+   "Neutral White",
+   "Warm White"
+  ],
+  "Colour Temperature": [
+   "Cool White (6500K)",
+   "Natural White (4000K)",
+   "Warm White (3000K)"
+  ]
+ },
+ "Waterproofing Primers": {
+  "Quantity": [
+   "1L",
+   "5L"
+  ]
+ },
+ "Safety Shoes": {
+  "Variants": [
+   "Size - 7",
+   "Size - 8",
+   "Size - 9"
+  ]
+ },
+ "Tower Bolts & Stoppers": {
+  "Size": [
+   "10 Inches",
+   "4 Inches",
+   "6 Inches",
+   "8 Inches"
+  ],
+  "Strength": [
+   "Heavy",
+   "Medium"
+  ],
+  "Finish": [
+   "Antique",
+   "SS (Stainless Steel)"
+  ]
+ },
+ "Painting Accessories": {
+  "Size": [
+   "4'' Inch",
+   "6'' Inch",
+   "8'' Inch(Heavy)"
+  ]
+ },
+ "Tile Cleaners": {
+  "Size": [
+   "1 Litre",
+   "5 Litres"
+  ]
+ },
+ "Tile Spacers": {
+  "Size": [
+   "2mm",
+   "3mm",
+   "4mm"
+  ]
+ },
+ "Distribution Boards": {
+  "Pole": [
+   "12 Way",
+   "18 Way",
+   "4 Way",
+   "6 Way",
+   "8 Way"
+  ]
+ },
+ "Street Lights": {
+  "Wattage": [
+   "100W",
+   "50W",
+   "72W"
+  ]
+ },
+ "Flood Lights": {
+  "Wattage": [
+   "100W",
+   "150W"
+  ]
+ },
+ "Bulkhead & Wall Lights": {
+  "Wattage": [
+   "10W",
+   "20W"
+  ],
+  "Light Color": [
+   "Cool White / 6500K",
+   "Warm White / 2700K"
+  ]
+ },
+ "Pliers & Cutters": {
+  "Size": [
+   "1621-6 (6-inch / 165mm)",
+   "1621-8 (8 inch / 210mm)"
+  ]
+ },
+ "Spanners": {
+  "Size": [
+   "10MM",
+   "13MM",
+   "17MM",
+   "19MM"
+  ]
+ },
+ "Screwdrivers & Spanners": {
+  "Kit Set": [
+   "Set of 12 Pcs (DEP12)",
+   "Set of 8 Pcs (DEP08)"
+  ],
+  "Model": [
+   "1171-8 (8\"/205mm)",
+   "1172-10 (10\"/255mm)"
+  ]
+ },
+ "PoE Network Switches": {
+  "Model": [
+   "LS1005 5-Port",
+   "LS1008 8-Port"
+  ]
+ },
+ "Routers & Access Points": {
+  "Type": [
+   "EAP225 AC1350",
+   "EAP245 AC1750"
+  ]
+ },
+ "Cutting Blades & Discs": {
+  "Blade": [
+   "Double Side",
+   "Single Side"
+  ]
+ },
+ "Conduit Bends & Collars": {
+  "Size": [
+   "19mm/0.75\"",
+   "25mm/1\""
+  ],
+  "Color": [
+   "Black",
+   "White"
+  ]
+ },
+ "Decorative Laminates & Liners": {
+  "Design": [
+   "Baverian Beech 2872",
+   "Interlacia 2601",
+   "Linen Fabric 2632",
+   "Linen Fabric Dark 2634",
+   "Lush Fibra 2614",
+   "Mattegrid 2615",
+   "Threadis 2619"
+  ]
+ },
+ "Cabinet Light Drivers": {
+  "Light Color": [
+   "Cool White / 6500K",
+   "Warm White / 2700K"
+  ]
+ },
+ "Recessed LED Panels": {
+  "Wattage": [
+   "10W",
+   "15W",
+   "6W"
+  ],
+  "Light Colour": [
+   "Cool Day White/ 6000K",
+   "Neutral White/ 4000K",
+   "Warm White/ 3000K"
+  ]
+ },
+ "Drywall & Anchor Fasteners": {
+  "Size": [
+   "3.5 x 19mm/0.75\", 1000 Nos",
+   "3.5 x 25mm/1\", 1000 Nos",
+   "3.5 x 32mm/1.25\", 500 Nos",
+   "3.5 x 38mm/1.5\", 400 Nos",
+   "3.5 x 50mm/2\", 200 Nos"
+  ]
+ }
+}
